@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    max-width: 1080px;
+    margin: auto;
+    background-color: var(--general-background);
+}
+
+header {
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    box-shadow: 0 0 10px var(--hmf-shadow);
+    background-color: var(--hmf-background);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    margin: 20px;
+}
+header > #logo {
+    display: inline-block;
+    width: 100%;
+    max-width: 250px;
+    margin-top: 20px;
+    filter: drop-shadow(0 0 10px var(--header-logoShadow));
+}
+header div > #platos,
+header div > #ordenar,
+header div > #btncarrito {
+    margin: 20px 5px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: medium;
+    cursor: pointer;
+    outline: none;
+    background-color: var(--header-button-mainColor);
+    color: var(--header-button-contrastColor);
+    border: 2px solid var(--header-button-mainColor);
+    filter: drop-shadow(0 0 10px var(--header-button-shadow));
+    transition: all 0.3s;
+    font-weight: bold;
+}
+header div > #platos {
+    max-width: 225px;
+}
+header div > #ordenar {
+    display: none;
+}
+header div > #btncarrito {
+    display: none;
+    border: 2px solid var(--header-button-mainColor);
+    background-color: var(--header-button-contrastColor);
+    color: var(--header-button-mainColor);
+}
+
+main {
+    border-top: 4px solid var(--main-title-background);
+    background-color: var(--hmf-background);
+    min-height: 250px;
+    box-shadow: 0 0 10px var(--hmf-shadow);
+    padding: 0px 20px 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+main > div .title {
+    background-color: var(--main-title-background);
+    color: var(--main-title-color);
+    padding: 5px 10px;
+    border-radius: 0 0 5px 5px;
+    width: max-content;
+    max-width: 225px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+main > div table {
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+}
+main > div table thead tr th {
+    background-color: var(--main-table-thead-background);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--main-table-thead-color);
+}
+main > div table tbody tr td {
+    padding: 5px 10px;
+    color: var(--main-table-tbody-color);
+}
+main > div table tbody tr td > img {
+    width: 100px;
+    height: 60px;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: center center;
+    box-shadow: 2.5px 2.5px 5px var(--main-table-tbody-imgShadow);
+}
+main > div table tbody tr td > p {
+    width: max-content;
+    background-color: var(--main-table-tbody-price-background);
+    border-radius: 25px;
+    padding: 5px 10px;
+    color: var(--main-table-tbody-price-color);
+    margin: auto;
+}
+main > div table tbody tr td > p::before {
+    content: 'S/ ';
+}
+main > div table tbody tr td > button {
+    width: 25px;
+    height: 25px;
+    font-size: medium;
+    background-color: var(--main-table-tbody-orderButton-background);
+    outline: none;
+    border: 1px solid var(--main-table-tbody-orderButton-background);
+    border-radius: 25px;
+    color: var(--main-table-tbody-orderButton-color);
+    cursor: pointer;
+    user-select: none;
+}
+main > div table tbody tr td > input {
+    height: 25px;
+    width: 50px;
+    margin: 0 2.5px;
+    text-align: center;
+    outline: none;
+    border-radius: 5px;
+    background-color: var(--main-table-tbody-orderInput-background);
+    border: 1px solid var(--main-table-tbody-orderInput-border);
+    color: var(--main-table-tbody-orderInput-color);
+}
+main > #divcarrito .title {
+    background-color: var(--carrito-title-background);
+    color: var(--carrito-title-color);
+}
+main > #divcarrito table thead tr th {
+    background-color: var(--carrito-table-thead-background);
+    color: var(--carrito-table-thead-color);
+}
+main > #divcarrito table tbody tr td {
+    color: var(--carrito-table-tbody-color);
+    vertical-align: middle;
+}
+main > #divcarrito table tbody tr td > p {
+    background-color: var(--carrito-table-tbody-price-background);
+    color: var(--carrito-table-tbody-price-color);
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+footer {
+    max-width: 1080px;
+    text-align: center;
+    background-color: var(--hmf-background);
+    padding: 20px;
+    margin: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px var(--hmf-shadow);
+    border-radius: 5px;
+}
+footer > ul li {
+    list-style: none;
+    display: inline-flex;
+    flex-wrap: wrap;
+    padding: 5px 10px;
+    color: var(--main-table-tbody-color);
+    border-radius: 5px;
+    border-left: 2px solid var(--main-title-background);
+    border-right: 2px solid var(--main-title-background);
+}
+footer > ul li a {
+    color: var(--main-table-tbody-color);
+    margin-left: 5px;
+}
+.delCarrito,
+.maxCarrito,
+.cantCarrito,
+.minCarrito {
+    font-size: small;
+    width: 30px;
+    height: 25px;
+    font-size: 15px;
+    padding: 5px 0;
+    cursor: pointer;
+    user-select: none;
+}
+.delCarrito {
+    font-size: small;
+    padding: 2px 5px;
+    border-radius: 5px;
+    background-color: var(--main-table-tbody-orderButton-background);
+    color: var(--main-table-tbody-orderButton-color);
+}
+.maxCarrito {
+    border-radius: 5px 5px 0 0;
+    background-color: var(--main-table-tbody-orderButton-background);
+    color: var(--main-table-tbody-orderButton-color);
+}
+.cantCarrito {
+    background-color: var(--main-table-tbody-orderInput-background);
+    color: var(--main-table-tbody-orderInput-color);
+    border: 1px solid var(--main-table-tbody-orderInput-border);
+    cursor: default;
+}
+.minCarrito {
+    border-radius: 0 0 5px 5px;
+    background-color: var(--main-table-tbody-orderButton-background);
+    color: var(--main-table-tbody-orderButton-color);
+}
+
+@media screen and (max-width: 720px) {
+    main > div table tbody tr td:first-child,
+    main > div table thead tr th:first-child {
+        display: none;
+    }
+    main > #divcarrito table tbody tr td:first-child,
+    main > #divcarrito table thead tr th:first-child {
+        display: block;
+    }
+    header {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: unset;
+    }
+    main {
+        padding: 0 5px 5px;
+        margin: 0;
+        border-radius: 0;
+    }
+    footer {
+        margin: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+        box-shadow: unset;
+        background-color: transparent;
+    }
+}

@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f8ff;
+}
+
+body>#form {
+    position: absolute;
+    width: calc(100% - 20px);
+    max-width: 420px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body>#form>img {
+    margin: auto;
+    width: 50%;
+    max-width: 250px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px #d2d2d2);
+}
+
+body>#form>form {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 5px #d2d2d2;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+body>#form>form>.title {
+    font-size: large;
+    color: #232e3c;
+    margin-bottom: 40px;
+}
+body > #form > form > .message {
+    display: none;
+    background-color: #80808011;
+    border-left: 4px solid #808080;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+}
+body > #form > form > .success {
+    background-color: #06c27011;
+    border-color: #06c270;
+    color: #06c270;
+}
+body > #form > form > .danger {
+    background-color: #ff3b3b11;
+    border-color: #ff3b3b;
+    color: #ff3b3b;
+}
+body>#form>form>.username, body>#form>form>.password {
+    text-align: left;
+}
+
+body>#form>form label {
+    width: 100%;
+    color: #232e3c;
+}
+
+body>#form>form input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: medium;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgb(175, 175, 175);
+    color: #232e3c;
+    transition: 0.3s;
+}
+body>#form>form input:focus {
+    border-color: #6698ff;
+    box-shadow: 0 0 5px #6698ff;
+}
+
+body>#form>form input[type="submit"] {
+    background-color: #6698ff;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 0;
+    transition: 0.3s;
+}
+
+body>#form>form input[type="submit"]:hover {
+    background-color: #528bfd;
+}
+
+body>#form>.dha {
+    margin-top: 20px;
+    color: #232e3c;
+}
+
+body>#form>.dha>a {
+    color: #6698ff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+body>#form>.dha>a:hover {
+    border-bottom: 1px dotted #528bfd;
+    color: #528bfd;
+}
+
+::placeholder {
+    color: rgb(175, 175, 175);
+}

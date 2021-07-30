@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    max-width: 1080px;
+    margin: auto;
+    background-color: aliceblue;
+    
+}
+header {
+    background-color: #00a3ee;
+    color: #fff;
+    margin: 20px;
+    padding: 5px 10px;
+    box-shadow: 0 0 5px grey;
+    border-radius: 5px;
+    text-align: center;
+}
+main {
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px grey;
+    padding: 20px;
+}
+#carta {
+    border: 2px dotted grey;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+    padding: 10px;
+}
+#carta > div,
+#carta > table {
+    width: 100%;
+    text-align: center;
+}
+#carta > div {
+    padding: 5px 0;
+    border-bottom: 2px dotted grey;
+}
+#carta > table {
+    padding: 5px 0;
+}
+#carta > div:last-child {
+    border: none;
+}
+#carta > div > p,
+#carta > table thead th,
+#carta > table tbody td {
+    padding: 5px 10px;
+    text-transform:uppercase;
+}
+#carta > table tfoot tr td {
+    border-top: 2px dotted grey;
+    padding: 5px 0;
+}
+#carta > table tfoot tr td > p:last-child {
+    padding: 5px 10px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+}
+#carta > table thead th {
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+}
+#carta > section {
+    font-size: xx-large;
+    margin: 20px 0;
+    text-align: center;
+}
+#carta > section::before {
+    content: 'S/ ';
+}
+#carta > div:last-child > p {
+    text-transform: unset;
+}
+
+body > div {
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    padding: 20px;
+    margin: auto;
+}
+body > div > div {
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px grey;
+    width: 240px;
+}
+body > div > div img:first-of-type {
+    width: 50px;
+    margin: 20px;
+}
+body > div > div p:first-of-type {
+    background-color: #720e9e;
+    font-size: large;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px 10px;
+}
+body > div > div p:last-of-type {
+    font-size: small;
+    padding: 5px 10px;
+    margin: 20px 0;
+}
+body > div > div img:last-of-type {
+    width: 100%;
+}
+body > div > div > code {
+    padding: 5px 10px;
+    margin-top: 20px;
+}
+body > div button {
+    padding: 5px 10px;
+    font-size: medium;
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    cursor: pointer;
+    border-radius: 5px;
+}
+body > div button:first-of-type {
+    background-color: #00a3ee;
+    border: 2px solid #00a3ee;
+    color: #fff;
+}
+body > div button:last-of-type {
+    background-color: #00bb2d;
+    border: 2px solid #00bb2d;
+    color: #fff;
+}
