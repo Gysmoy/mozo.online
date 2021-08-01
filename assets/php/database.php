@@ -6,7 +6,7 @@ class Database{
     private $password;
     private $charset;
     public function __construct(){
-        $this->host = 'localhost:3305';
+        $this->host = 'localhost';
         $this->db = 'mozo.online';
         $this->user = 'root';
         $this->password = '';
