@@ -99,13 +99,13 @@ function setGeneralConfigColor($data) {
 
 switch ($_POST['function']) {
     case 'setTitle':
-        echo setTitle($_POST['data']);
+        $data = setTitle($_POST['data']);
         break;
     case 'setidPage':
-        echo setidPage($_POST['data']);
+        $data = setidPage($_POST['data']);
         break;
     case 'setGeneralConfigColor':
-        echo setGeneralConfigColor($_POST['data']);
+        $data = setGeneralConfigColor($_POST['data']);
         break;
     default:
         $data = array();
