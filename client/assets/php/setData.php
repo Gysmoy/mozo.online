@@ -15,16 +15,17 @@ function setTitle($title) {
     $config['title'] = $title;
     try {
         file_put_contents($configPath, json_encode($config));
-        return json_encode(array(
+        $data = array(
             'status' => true,
             'message' => 'Se han guardado los cambios'
-        ));
+        );
     } catch (Exception $e) {
-        return json_encode(array(
+        $data = array(
             'status' => false,
             'message' => 'Error: ' . $e
-        ));
+        );
     }
+    return $data;
 }
 function setidPage($idPage) {
     include_once '../../../assets/php/database.php';
@@ -94,7 +95,7 @@ function setGeneralConfigColor($data) {
         ));
     }
 }
-header('Content-type: application/json');
+
 switch ($_POST['function']) {
     case 'setTitle':
         echo setTitle($_POST['data']);
@@ -106,7 +107,10 @@ switch ($_POST['function']) {
         echo setGeneralConfigColor($_POST['data']);
         break;
     default:
-        # code...
+        $data = array();
         break;
 }
+
+header('Content-type: application/json');
+echo json_encode($data, JSON_PRETTY_PRINT);
 ?>
