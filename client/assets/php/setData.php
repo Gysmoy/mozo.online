@@ -37,16 +37,17 @@ function setidPage($idPage) {
         ':idUser' => $idUser
     ]);
     if ($result) {
-        return json_encode(array(
+        $data = array(
             'status' => true,
             'message' => 'Se han guardado los cambios'
-        ));
+        );
     } else {
-        return json_encode(array(
+        $data = array(
             'status' => False,
             'message' => 'Hubo un error en los cambios'
-        ));
+        );
     }
+    return $data;
 }
 function setGeneralConfigColor($data) {
     $idUser = $_SESSION['idUser'];
@@ -84,15 +85,15 @@ function setGeneralConfigColor($data) {
 
     try {
         file_put_contents($configPath, json_encode($config));
-        return json_encode(array(
+        $data = array(
             'status' => true,
             'message' => 'Se han guardado los cambios'
-        ));
+        );
     } catch (Exception $e) {
-        return json_encode(array(
+        $data = array(
             'status' => false,
             'message' => 'Error: ' . $e
-        ));
+        );
     }
 }
 
