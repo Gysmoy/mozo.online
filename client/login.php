@@ -21,7 +21,7 @@ if(isset($_SESSION['rol'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mozo en línea | Login</title>
     <link rel="shortcut icon" href="../img/logo.png" type="image/png" />
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -33,8 +33,8 @@ if(isset($_SESSION['rol'])) {
             <div class="title">Ingrese a su cuenta</div>
             <div class="message">Message here</div>
             <div class="username">
-                <label for="username">Nombre de usuario</label>
-                <input type="text" id="username" placeholder="Ingrese su usuario" required>
+                <label for="username">Correo de usuario</label>
+                <input type="text" id="username" placeholder="correo@ejemplo.com" required>
             </div>
             <div class="password">
                 <label for="password">Contraseña</label>
