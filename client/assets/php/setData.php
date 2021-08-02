@@ -94,6 +94,7 @@ function setGeneralConfigColor($data) {
         ));
     }
 }
+header('Content-type: application/json');
 switch ($_POST['function']) {
     case 'setTitle':
         echo setTitle($_POST['data']);
