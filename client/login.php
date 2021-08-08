@@ -7,7 +7,7 @@ if(isset($_GET['logout'])){
     header('location: login.php');
 }
 
-if(isset($_SESSION['rol'])) {
+if(isset($_SESSION['access'])) {
     header('location: index.php');
 } else {
     // Nothing to do

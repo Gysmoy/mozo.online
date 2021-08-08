@@ -1,1 +1,2 @@
-prueba.php
+files/*
+!files/maindata/

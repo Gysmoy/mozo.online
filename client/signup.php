@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['rol'])) {
+if (isset($_SESSION['access'])) {
     header('location: index.php');
 } else {
     // Nothing to do
@@ -30,11 +30,11 @@ if (isset($_SESSION['rol'])) {
             </div>
             <div class="password">
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" placeholder="Ingrese su contraseña">
+                <input type="password" id="password" placeholder="Ingrese su contraseña" required>
             </div>
             <div class="password">
                 <label for="confirmpassword">Confirmar contraseña</label>
-                <input type="password" id="confirmpassword" placeholder="Confirme su contraseña">
+                <input type="password" id="confirmpassword" placeholder="Confirme su contraseña" required>
             </div>
             <div class="button">
                 <input type="submit" value="Crear una cuenta nueva">

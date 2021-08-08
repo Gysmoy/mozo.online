@@ -30,7 +30,7 @@ if(isset($_SESSION['access'])) {
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.php" class="logo"><strong>Mozo en línea</strong> @<span id="username"></span></a>
+									<a href="index.php" class="logo"><strong>Mozo en línea |</strong> <span id="username"></span></a>
 									<ul class="icons">
 										<li><a href="#" class="icon solid fa-list"><span class="label">Pedidos</span></a></li>
 										<li><a class="icon solid fa-chevron-left"><span class="label">Configuración</span></a></li>
