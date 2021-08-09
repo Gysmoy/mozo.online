@@ -52,7 +52,7 @@ if (isset($_GET['page'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="<?php echo $logoImage; ?>" type="image/png" />
+    <link rel="shortcut icon" href="/<?php echo $logoImage; ?>" type="image/png" />
     <title><?php echo $config['title']; ?></title>
     <style><?php
     echo 
@@ -95,17 +95,17 @@ if (isset($_GET['page'])) {
         --carrito-table-tbody-price-color: ' . $config['carrito']['table']['tbody']['price']['color'] . ';
     }';
     ?></style>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
     <header>
         <style>
             header {
-                background-image: url(<?php echo $backgroundImage; ?>);
+                background-image: url(/<?php echo $backgroundImage; ?>);
             }
         </style>
-        <img src="<?php echo $logoImage; ?>" alt="Mozo en línea" id="logo" loading="lazy">
+        <img src="/<?php echo $logoImage; ?>" alt="Mozo en línea" id="logo" loading="lazy">
         <div>
             <select id="platos"><?php
             foreach ($dishes as $key => $value) {
@@ -155,7 +155,7 @@ if (isset($_GET['page'])) {
                     $stock = $dish['stock'];
                     echo '
                     <tr data-id="' . $idName . '">
-                        <td width="120px"><img src="' . $image . '" alt="' . $name . '" loading="lazy"></td>
+                        <td width="120px"><img src="/' . $image . '" alt="' . $name . '" loading="lazy"></td>
                         <td align="left">' . $name . '</td>
                         <td><p>' . $price . '</p></td>
                         <td width="140px">
@@ -198,10 +198,10 @@ if (isset($_GET['page'])) {
             <li>Powered by <a href="http://gysmoy.epizy.com" title="Carlos Manuel Gamboa Palomino y Ruth Najhely Gutierrez Castro">Gysmoy & Kizzi</a></li>
         </ul>
     </footer>
-    <script type="text/javascript" src="assets/js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="assets/js/carrito.js"></script>
-    <script type="text/javascript" src="assets/js/fade.js"></script>
-    <script type="text/javascript" src="assets/js/changeQuantity.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/assets/js/carrito.js"></script>
+    <script type="text/javascript" src="/assets/js/fade.js"></script>
+    <script type="text/javascript" src="/assets/js/changeQuantity.js"></script>
 </body>
 
 </html>
