@@ -19,7 +19,7 @@ $('form').submit(e => {
             $('.message').fadeIn();
             if (data.access) {
                 $('.message').removeClass('danger').addClass('success');
-                location.href = 'index.php';
+                location.href = './';
             } else {
                 $('.message').removeClass('success').addClass('danger');
             }

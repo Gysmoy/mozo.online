@@ -4,11 +4,11 @@ session_start();
 if(isset($_GET['logout'])){
     session_unset();
     session_destroy();
-    header('location: login.php');
+    header('location: login');
 }
 
 if(isset($_SESSION['access'])) {
-    header('location: index.php');
+    header('location: ./');
 } else {
     // Nothing to do
 }
