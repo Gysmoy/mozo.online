@@ -16,3 +16,8 @@ RewriteRule ^(.*)$ $1.php [L]
 
 # Reasignando la URL
 RewriteRule ^page/(.*)$  /index.php?page=$1 [L]
+
+# Páginas de error
+ErrorDocument 403 /error
+ErrorDocument 404 /error
+ErrorDocument 500 /error

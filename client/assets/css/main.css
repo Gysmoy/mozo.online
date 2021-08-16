@@ -2277,11 +2277,3 @@ input[type="color"] {
 .inputColor {
   padding: 5px 0;
 }
-.btn-edit {
-  opacity: 0.25;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.btn-edit:hover {
-  opacity: 0.5;
-}

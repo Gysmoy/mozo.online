@@ -16,7 +16,7 @@ switch($_SERVER['PHP_SELF']){
 
 <head>
 	<title>Mozo en línea</title>
-	<link rel="shortcut icon" href="<?php echo $url[1];?>images/pic05.jpg" type="image/png" />
+	<link rel="shortcut icon" href="../img/logo.png" type="image/png" />
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="<?php echo $url[1];?>assets/css/main.css" />
