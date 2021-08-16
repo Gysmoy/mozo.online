@@ -1,6 +1,6 @@
 <?php
 
-include_once 'assets/php/database.php';
+include_once 'assets/php/database.php'; 
 
 function consultUser($user) {
     $db = new Database();
