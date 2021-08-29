@@ -1,14 +1,15 @@
 <?php
 
-include_once 'assets/php/database.php'; 
+include_once 'assets/php/database.php';
 
-function consultUser($user) {
+function consultUser($user)
+{
     $db = new Database();
-    $query = $db -> connect() -> prepare('SELECT `idUser` FROM `users` WHERE idPage = :idPage');
-    $query -> execute([
+    $query = $db->connect()->prepare('SELECT `idUser` FROM `users` WHERE idPage = :idPage');
+    $query->execute([
         ':idPage' => $user
     ]);
-    $result = $query -> fetch(PDO::FETCH_ASSOC);
+    $result = $query->fetch(PDO::FETCH_ASSOC);
     if ($result) {
         return $result['idUser'];
     } else {
@@ -32,31 +33,32 @@ if (isset($_GET['page'])) {
 
     // Obtención de imágenes generales
     $logoImagePath = 'files/' . $idUser . '/img/logo.png';
-    if(file_exists($logoImagePath)) {
+    if (file_exists($logoImagePath)) {
         $logoImage = $logoImagePath;
     } else {
         $logoImage = 'img/logo.png';
     }
     $backgroundImagePath = 'files/' . $idUser . '/img/background.jpg';
-    if(file_exists($backgroundImagePath)) {
+    if (file_exists($backgroundImagePath)) {
         $backgroundImage = $backgroundImagePath;
     } else {
         $backgroundImage = 'img/background.jpg';
     }
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
+    <!DOCTYPE html>
+    <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/<?php echo $logoImage; ?>" type="image/png" />
-    <title><?php echo $config['title']; ?></title>
-    <style><?php
-    echo 
-    ':root {
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/<?php echo $logoImage; ?>" type="image/png" />
+        <title><?php echo $config['title']; ?></title>
+        <style>
+            <?php
+            echo
+            ':root {
         /* General */
         --general-background: ' . $config['general']['background'] . ';
         
@@ -94,117 +96,155 @@ if (isset($_GET['page'])) {
         --carrito-table-tbody-price-background: ' . $config['carrito']['table']['tbody']['price']['background'] . ';
         --carrito-table-tbody-price-color: ' . $config['carrito']['table']['tbody']['price']['color'] . ';
     }';
-    ?></style>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-
-<body>
-    <header>
-        <style>
-            header {
-                background-image: url(/<?php echo $backgroundImage; ?>);
-            }
+            ?>
         </style>
-        <img src="/<?php echo $logoImage; ?>" alt="Mozo en línea" id="logo" loading="lazy">
-        <div>
-            <select id="platos"><?php
+        <link rel="stylesheet" href="/assets/css/style.css">
+    </head>
+
+    <body>
+        <header>
+            <style>
+                header {
+                    background-image: url(/<?php echo $backgroundImage; ?>);
+                }
+            </style>
+            <img src="/<?php echo $logoImage; ?>" alt="Mozo en línea" id="logo" loading="lazy">
+            <div>
+                <select id="platos"><?php
+                                    foreach ($dishes as $key => $value) {
+                                        echo '
+                <option value="' . $key . '">' . $value['name'] . '</option>
+                ';
+                                    }
+                                    ?>
+                </select>
+                <button id="ordenar">Ordenar [<span id="total">S/ 00.00</span>]</button>
+                <button id="btncarrito">🛒 [<span id="spancarrito">0</span>]</button>
+            </div>
+        </header>
+        <main>
+            <div id="dishes">
+            <?php
             foreach ($dishes as $key => $value) {
                 echo '
-                <option value="'.$key.'">'.$value['name'].'</option>
+                <div id="' . $key . '">
+                    <div class="title">' . $value['name'] . '</div>
+                    <div class="dishesContainer">
                 ';
-            }
-            ?>
-            </select>
-            <button id="ordenar">Ordenar [<span id="total">S/ 00.00</span>]</button>
-            <button id="btncarrito">🛒 [<span id="spancarrito">0</span>]</button>
-        </div>
-    </header>
-    <main>
-    <?php
-    foreach ($dishes as $key => $value) {
-        echo '
-        <div id="' . $key . '">
-            <div class="title">' . $value['name'] . '</div>
-        ';
-    ?>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Muestra</th>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Ordenar</th>
-                    </tr>
-                </thead>
-                <tbody><?php
                 foreach ($value['dishes'] as $dish) {
-
-                    // Obtención de imagen por plato 
-                    $imagePath = 'files/' . $idUser . '/img/';
-                    if (file_exists($imagePath . 'dishes/' . $dish['image'] . '.jpg')) {
-                        $image = $imagePath . 'dishes/' . $dish['image'] . '.jpg';
-                    } else if (file_exists($imagePath . 'default.jpg')) {
-                        $image = $imagePath . 'default.jpg';
+                    $imgPath = 'files/' . $idUser . '/img/';
+                    if(
+                        file_exists($imgPath . 'dishes/' . $dish['image'] . '.jpg')
+                    ) {
+                        $image = $imgPath . 'dishes/' . $dish['image'] . '.jpg';
+                    } else if (
+                        file_exists($imgPath . 'default.jpg')
+                    ) {
+                        $image = $imgPath . 'default.jpg';
                     } else {
                         $image = 'img/default.jpg';
                     }
-
+                    
                     $name = $dish['name'];
-                    $idName = hash('CRC32', $name);
+                    $id = hash('CRC32', $name);
                     $price = number_format($dish['price'], 2);
-                    $stock = $dish['stock'];
+                    $data = json_encode($dish);
                     echo '
-                    <tr data-id="' . $idName . '">
-                        <td width="120px"><img src="/' . $image . '" alt="' . $name . '" loading="lazy"></td>
-                        <td align="left">' . $name . '</td>
-                        <td><p>' . $price . '</p></td>
-                        <td width="140px">
-                            <button class="minus">-</button>
-                            <input type="number" id="" max="'.$stock.'" value="0" lenght="2" aria-controls="false">
-                            <button class="plus">+</button>
-                        </td>
-                    </tr>
+                    <div
+                        id="' . $id . '"
+                        quantity="0"
+                        data-dish=\'' . $data . '\'>
+                        <div class="botones">
+                            <button>0</button>
+                            <button>S/ 00.00</button>
+                            <button>X</button>
+                        </div>
+                        <div class="contain">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td
+                                            style="
+                                            background: linear-gradient(to right,
+                                                rgba(20, 20, 20, 0.5) 40%,
+                                                rgb(20, 20, 20)),
+                                                url(/'.$image.');
+                                            background-size: cover;
+                                            background-position: center center;
+                                        ">' . $name . ' con arroz blanco y patatas fritas con yuca y huevo</td>
+                                        <td>
+                                            <p>' . $price . '</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     ';
                 }
-                ?>
-                </tbody>
-            </table>
-        </div>
-    <?php
-    }
-    ?>
-        <div id="divcarrito">
-            <div class="title">Platos ordenados</div>
-            <table>
-                <thead>
-                    <tr>
-                        <th width="100%">Nombre</th>
-                        <th>Precio</th>
-                        <th>#</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-    </main>
-    <form action="carta.php?page=<?php echo $_GET['page']; ?>" method="post" style="display: none;">
-        <textarea name="carta" id="carta"></textarea>
-    </form>
-    <footer>
-        <ul>
-            <li>Copyright &copy; Mozo en línea</li>
-            <li>Version 1.0.0</li>
-            <li>Powered by <a href="http://gysmoy.epizy.com" title="Carlos Manuel Gamboa Palomino y Ruth Najhely Gutierrez Castro">Gysmoy & Kizzi</a></li>
-        </ul>
-    </footer>
-    <script type="text/javascript" src="/assets/js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="/assets/js/carrito.js"></script>
-    <script type="text/javascript" src="/assets/js/fade.js"></script>
-    <script type="text/javascript" src="/assets/js/changeQuantity.js"></script>
-</body>
+                echo '
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+            </div>
 
-</html>
+            <div id="divcarrito">
+                <div class="title">Platos ordenados</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="100%">Nombre</th>
+                            <th>Precio</th>
+                            <th>#</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </main>
+        <section id="shower" style="display: none;" data-id="none">
+            <div>
+                <img src="/files/maindata/default.jpg" alt="">
+                <h2>Arroz con Pollo a la norteña</h2>
+                <div>
+                    <div id="precio">
+                        <p>12.50</p>
+                    </div>
+                    <div id="order">
+                        <button>-</button>
+                        <input type="number" id="" value="0" max="20">
+                        <button>+</button>
+                    </div>
+                </div>
+                <div>
+                    <button id="accept">
+                        <span>12.50</span>
+                        Aceptar
+                    </button>
+                    <button id="cancel">Cancelar</button>
+                </div>
+            </div>
+        </section>
+        <form action="carta.php?page=<?php echo $_GET['page']; ?>" method="post" style="display: none;">
+            <textarea name="carta" id="carta"></textarea>
+        </form>
+        <footer>
+            <ul>
+                <li>Copyright &copy; Mozo en línea</li>
+                <li>Version 1.0.0</li>
+                <li>Powered by <a href="http://gysmoy.epizy.com" title="Carlos Manuel Gamboa Palomino y Ruth Najhely Gutierrez Castro">Gysmoy & Kizzi</a></li>
+            </ul>
+        </footer>
+        <script type="text/javascript" src="/assets/js/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="/assets/js/carrito.js"></script>
+        <!--script type="text/javascript" src="/assets/js/fade.js"></script-->
+        <script type="text/javascript" src="/assets/js/changeQuantity.js"></script>
+    </body>
+
+    </html>
 
 <?php
 } else {

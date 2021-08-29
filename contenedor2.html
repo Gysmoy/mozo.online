@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contenedor 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: #fff;
+        }
+
+        #shower {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 360px;
+            background-color: rgb(20, 20, 20);
+            border-radius: 5px 20px;
+            box-shadow: 2.5px 2.5px 5px grey;
+            color: #fff;
+            border: 2px solid rgb(20, 20, 20);
+        }
+
+        #shower>#botones {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 5px;
+            box-shadow: inset 2.5px 2.5px 5px grey;
+            border: 2px solid rgb(20, 20, 20);
+        }
+
+        #shower>#botones>button {
+            border-radius: 15px;
+            padding: 1px 5px;
+            border: none;
+            background-color: grey;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 2.5px 2.5px 5px grey;
+            font-size: medium;
+        }
+
+        #shower>#botones>button:nth-child(1) {
+            background-color: #089000;
+        }
+
+        #shower>#botones>button:nth-child(2) {
+            background-color: #6698ff;
+        }
+
+        #shower>#botones>button:nth-child(3) {
+            background-color: #ff3b3b;
+        }
+
+        #shower table {
+            border-spacing: 0;
+        }
+
+        #shower table tbody tr:nth-child(1) {
+            background: linear-gradient(to bottom,
+                    rgba(20, 20, 20, 0.40) 40%,
+                    rgb(20, 20, 20)), url('/files/maindata/prueba.jpg');
+            background-size: cover;
+            background-position: center center;
+            text-shadow: 0 0 10px black;
+        }
+
+        #shower table tbody tr:nth-child(1) td {
+            padding: 150px 10px 10px 10px;
+        }
+
+        #shower table tbody tr:nth-child(1) td:nth-child(1) {
+            border-radius: 3px 0 0 0;
+        }
+
+        #shower table tbody tr:nth-child(1) td:nth-child(2) {
+            border-radius: 0 18px 0 0;
+            text-align: center;
+        }
+
+        #shower table tbody tr:nth-child(1) td:nth-child(2) p {
+            width: max-content;
+            font-weight: bold;
+        }
+
+        #shower table tbody tr:nth-child(1) td:nth-child(2) p::before {
+            content: 'S/ ';
+        }
+
+        #shower table tbody tr:nth-child(2) td {
+            padding: 10px;
+        }
+
+        #shower table tbody tr:nth-child(2) td:nth-child(1) {
+            text-align: center;
+        }
+
+        #shower table tbody tr:nth-child(2) td:nth-child(1) button {
+            border-radius: 15px;
+            padding: 4px 8px;
+            border: 2px solid #fff;
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+            font-size: medium;
+            font-weight: bold;
+        }
+
+        #shower table tbody tr:nth-child(2) td:nth-child(1) input {
+            border-radius: 5px;
+            padding: 4px 8px;
+            font-size: medium;
+            border: 2px solid #fff;
+            background-color: rgb(20, 20, 20);
+            color: #fff;
+            text-align: center;
+            outline: none;
+            width: 50px;
+            font-weight: bold;
+        }
+
+        #shower table tbody tr:nth-child(2) td:nth-child(1) input::-webkit-inner-spin-button,
+        #shower table tbody tr:nth-child(2) td:nth-child(1) input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        #shower table tbody tr:nth-child(2) td:nth-child(2) {
+            text-align: right;
+        }
+
+        #shower table tbody tr:nth-child(2) td:nth-child(2) button {
+            padding: 4px 8px;
+            font-size: medium;
+            border: 2px solid #fff;
+            background-color: transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+        #shower table tbody tr:nth-child(2) td:nth-child(2) button:hover {
+            background-color: #ffffff22;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="shower">
+        <div id="botones">
+            <button id="quantityLbl">0</button>
+            <button>S/ 0.00</button>
+            <button id="cancel">X</button>
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Pollo a la plancha con arroz blanco</td>
+                    <td>
+                        <p id="price">12.50</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="min">-</button>
+                        <input type="number" id="quantity" min="0" value="0" max="20">
+                        <button id="max">+</button>
+                    </td>
+                    <td>
+                        <button id="accept">Aceptar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#quantityLbl').click(function() {
+            $('#quantity').focus().select();
+        });
+        $('#min').click(function () {
+            var input = $('#quantity');
+            var quantity = parseInt(input.val());
+            
+            input.val(quantity - 1);
+            input.trigger('change');
+        })
+        $('#max').click(function () {
+            var input = $('#quantity');
+            var quantity = parseInt(input.val());
+
+            input.val(quantity + 1);
+            input.trigger('change');
+        })
+        $('#cancel').click(function() {
+            var input = $('#quantity');
+
+            input.val(0);
+            input.trigger('change');
+        })
+        $('#quantity').on('change', function () {
+            var quantity = parseInt($(this).val());
+            var min = parseInt($(this).attr('min'));
+            var max = parseInt($(this).attr('max'));
+            if (quantity > max) {
+                quantity = max;
+            } else if (quantity < min) {
+                quantity = min;
+            } else if (isNaN(quantity)){
+                quantity = 0;
+            }
+            $(this).val(quantity);
+            var price = parseFloat($('#price').text());
+            var totalPrice = (quantity * price).toFixed(2);
+
+            var button1 = $('#shower #botones button:nth-child(1)');
+            var button2 = $('#shower #botones button:nth-child(2)');
+            
+            button1.text(quantity);
+            button2.text('S/ ' + totalPrice);
+        })
+    </script>
+</body>
+
+</html>
