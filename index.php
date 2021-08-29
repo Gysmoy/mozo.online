@@ -249,5 +249,5 @@ if (isset($_GET['page'])) {
 <?php
 } else {
     include_once 'home/index.php';
-}
+} 
 ?>
