@@ -64,11 +64,12 @@
             background-color: #ff3b3b;
         }
 
-        #shower table {
+        #namePriceContainer,
+        #orderContainer {
             border-spacing: 0;
         }
 
-        #shower table tbody tr:nth-child(1) {
+        #namePriceContainer tbody tr:nth-child(1) {
             background: linear-gradient(to bottom,
                     rgba(20, 20, 20, 0.40) 40%,
                     rgb(20, 20, 20)), url('/files/maindata/prueba.jpg');
@@ -77,37 +78,42 @@
             text-shadow: 0 0 10px black;
         }
 
-        #shower table tbody tr:nth-child(1) td {
+        #namePriceContainer tbody tr:nth-child(1) td {
             padding: 150px 10px 10px 10px;
         }
 
-        #shower table tbody tr:nth-child(1) td:nth-child(1) {
+        #namePriceContainer tbody tr:nth-child(1) td:nth-child(1) {
             border-radius: 3px 0 0 0;
         }
 
-        #shower table tbody tr:nth-child(1) td:nth-child(2) {
+        #namePriceContainer tbody tr:nth-child(1) td:nth-child(2) {
             border-radius: 0 18px 0 0;
             text-align: center;
         }
 
-        #shower table tbody tr:nth-child(1) td:nth-child(2) p {
+        #namePriceContainer tbody tr:nth-child(1) td:nth-child(2) p {
             width: max-content;
             font-weight: bold;
         }
 
-        #shower table tbody tr:nth-child(1) td:nth-child(2) p::before {
+        #namePriceContainer tbody tr:nth-child(1) td:nth-child(2) p::before {
             content: 'S/ ';
         }
 
-        #shower table tbody tr:nth-child(2) td {
+        #orderContainer tbody tr:nth-child(1) td,
+        #orderContainer tbody tr:nth-child(2) td {
             padding: 10px;
         }
 
-        #shower table tbody tr:nth-child(2) td:nth-child(1) {
+        #orderContainer tbody tr:nth-child(1) td:nth-child(2) {
             text-align: center;
         }
 
-        #shower table tbody tr:nth-child(2) td:nth-child(1) button {
+        #orderContainer tbody tr:nth-child(1) td:nth-child(2)>div {
+            width: max-content;
+        }
+
+        #orderContainer tbody tr:nth-child(1) td:nth-child(2) button {
             border-radius: 15px;
             padding: 4px 8px;
             border: 2px solid #fff;
@@ -118,7 +124,7 @@
             font-weight: bold;
         }
 
-        #shower table tbody tr:nth-child(2) td:nth-child(1) input {
+        #orderContainer tbody tr:nth-child(1) td:nth-child(2) input {
             border-radius: 5px;
             padding: 4px 8px;
             font-size: medium;
@@ -127,21 +133,17 @@
             color: #fff;
             text-align: center;
             outline: none;
-            width: 50px;
+            width: 25px;
             font-weight: bold;
         }
 
-        #shower table tbody tr:nth-child(2) td:nth-child(1) input::-webkit-inner-spin-button,
-        #shower table tbody tr:nth-child(2) td:nth-child(1) input::-webkit-outer-spin-button {
+        #orderContainer tbody tr:nth-child(1) td:nth-child(2) input::-webkit-inner-spin-button,
+        #orderContainer tbody tr:nth-child(1) td:nth-child(2) input::-webkit-outer-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
 
-        #shower table tbody tr:nth-child(2) td:nth-child(2) {
-            text-align: right;
-        }
-
-        #shower table tbody tr:nth-child(2) td:nth-child(2) button {
+        #orderContainer tbody tr:nth-child(2) td:nth-child(1) button {
             padding: 4px 8px;
             font-size: medium;
             border: 2px solid #fff;
@@ -151,9 +153,39 @@
             color: #fff;
             transition: 0.3s;
             text-transform: uppercase;
+            width: 100%;
+            height: 100%;
         }
-        #shower table tbody tr:nth-child(2) td:nth-child(2) button:hover {
+
+        #orderContainer tbody tr:nth-child(2) td:nth-child(1) button:hover {
             background-color: #ffffff22;
+        }
+
+        #orderContainer tbody tr:nth-child(1) td:nth-child(1) textarea {
+            display: block;
+            background-color: rgb(20, 20, 20);
+            border: 2px solid #fff;
+            border-radius: 5px 5px 5px 10px;
+            outline: none;
+            padding: 5px;
+            color: #fff;
+            width: calc(100% - 14px);
+            height: 66px;
+            resize: none;
+        }
+
+        #orderContainer tbody tr:nth-child(1) td:nth-child(1) textarea::placeholder {
+            color: grey;
+        }
+
+        #orderContainer tbody tr:nth-child(1) td:nth-child(1) textarea::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+
+        #orderContainer tbody tr:nth-child(1) td:nth-child(1) textarea::-webkit-scrollbar-thumb {
+            background: #fff;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -165,7 +197,7 @@
             <button>S/ 0.00</button>
             <button id="cancel">X</button>
         </div>
-        <table>
+        <table id="namePriceContainer">
             <tbody>
                 <tr>
                     <td>Pollo a la plancha con arroz blanco</td>
@@ -173,12 +205,23 @@
                         <p id="price">12.50</p>
                     </td>
                 </tr>
+            </tbody>
+        </table>
+        <table id="orderContainer">
+            <tbody>
                 <tr>
-                    <td>
-                        <button id="min">-</button>
-                        <input type="number" id="quantity" min="0" value="0" max="20">
-                        <button id="max">+</button>
+                    <td rowspan="2">
+                        <textarea id="" placeholder="¿Tienes alguna especificación?"></textarea>
                     </td>
+                    <td>
+                        <div>
+                            <button id="min">-</button>
+                            <input type="number" id="quantity" min="0" value="0" max="20">
+                            <button id="max">+</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
                     <td>
                         <button id="accept">Aceptar</button>
                     </td>
@@ -188,13 +231,13 @@
     </div>
     <script src="/assets/js/jquery-3.6.0.min.js"></script>
     <script>
-        $('#quantityLbl').click(function() {
+        $('#quantityLbl').click(function () {
             $('#quantity').focus().select();
         });
         $('#min').click(function () {
             var input = $('#quantity');
             var quantity = parseInt(input.val());
-            
+
             input.val(quantity - 1);
             input.trigger('change');
         })
@@ -205,7 +248,7 @@
             input.val(quantity + 1);
             input.trigger('change');
         })
-        $('#cancel').click(function() {
+        $('#cancel').click(function () {
             var input = $('#quantity');
 
             input.val(0);
@@ -219,7 +262,7 @@
                 quantity = max;
             } else if (quantity < min) {
                 quantity = min;
-            } else if (isNaN(quantity)){
+            } else if (isNaN(quantity)) {
                 quantity = 0;
             }
             $(this).val(quantity);
@@ -228,7 +271,7 @@
 
             var button1 = $('#shower #botones button:nth-child(1)');
             var button2 = $('#shower #botones button:nth-child(2)');
-            
+
             button1.text(quantity);
             button2.text('S/ ' + totalPrice);
         })
