@@ -11,9 +11,10 @@
             margin: 0;
             padding: 0;
             font-family: 'Courier New', Courier, monospace;
+            box-sizing: border-box;
         }
 
-        #platos {
+        #dishes {
             max-width: 1122px;
             padding: 5px;
             display: flex;
@@ -23,202 +24,66 @@
             height: max-content;
         }
 
-        #plato1 {
+        .dishContainer {
             position: relative;
             margin: 5px;
             max-width: 100%;
-            width: 360px;
-            height: max-content;
-            background-color: rgb(20, 20, 20);
-            border-radius: 5px 20px;
-            box-shadow: 2.5px 2.5px 5px grey;
+            width: 240px;
             border: 2px solid rgb(20, 20, 20);
-        }
-
-        #plato1>#botones {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background-color: #fff;
-            border-radius: 20px;
-            padding: 5px;
-            box-shadow: inset 2.5px 2.5px 5px grey;
-            border: 2px solid rgb(20, 20, 20);
-        }
-
-        #plato1>#botones>button {
-            border-radius: 15px;
-            padding: 1px 5px;
-            border: none;
-            background-color: grey;
-            color: #fff;
-            cursor: pointer;
+            border-radius: 5px;
             box-shadow: 2.5px 2.5px 5px grey;
-            font-size: medium;
-        }
-
-        #plato1>#botones>button:nth-child(1) {
-            background-color: #089000;
-        }
-
-        #plato1>#botones>button:nth-child(2) {
-            background-color: #6698ff;
-        }
-
-        #plato1>#botones>button:nth-child(3) {
-            background-color: #ff3b3b;
-        }
-
-        #plato1>#contenido>table {
-            border-spacing: 0;
-        }
-
-        #plato1>#contenido>table tbody tr td {
-            padding: 45px 10px 10px 10px;
-            color: #fff;
-            vertical-align: middle;
-        }
-
-        #plato1>#contenido>table tbody tr td:nth-child(1) {
-            background: linear-gradient(to right,
-                    rgba(20, 20, 20, 0.5) 40%,
-                    rgb(20, 20, 20)),
-                url('/files/maindata/prueba.jpg');
+            background: linear-gradient(to bottom,
+                    rgba(20, 20, 20, 0.40) 40%,
+                    rgb(20, 20, 20)), url('/files/maindata/prueba.jpg');
             background-size: cover;
             background-position: center center;
-            border-radius: 3px 0 0 18px;
-            text-shadow: 0 0 10px black;
-            color: #fff;
+        }
+
+        .dishContainer>table {
             width: 100%;
-            height: 36px;
+            height: 240px;
+            max-height: 120px;
         }
 
-        #plato1>#contenido>table tbody tr td:nth-child(2) p {
-            width: max-content;
+        .dishContainer>table>tbody>tr>td {
+            padding: 5px;
+            vertical-align: bottom;
+            color: #fff;
             font-weight: bold;
+            -webkit-text-stroke: 0.5px rgb(20, 20, 20);
         }
 
-        #plato1>#contenido>table tbody tr td:nth-child(2) p::before {
+        .dishContainer>table>tbody>tr>td:nth-child(1) {
+            width: 100%;
+        }
+
+        .dishContainer>table>tbody>tr>td:nth-child(2) button {
+            font-size: medium;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            background-color: transparent;
+            color: #fff;
+            font-weight: bold;
+            width: max-content;
+        }
+
+        .dishContainer>table>tbody>tr>td:nth-child(2) button::before {
             content: 'S/ ';
         }
     </style>
 </head>
 
 <body>
-    <div id="platos">
-        <div id="plato1">
-            <div id="botones">
-                <button>2</button>
-                <button>S/ 25.00</button>
-                <button>X</button>
-            </div>
-            <div id="contenido">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Pollo a la plancha</td>
-                            <td>
-                                <p>12.50</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div id="plato1">
-            <div id="botones">
-                <button>2</button>
-                <button>S/ 25.00</button>
-                <button>X</button>
-            </div>
-            <div id="contenido">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Pollo a la plancha con arroz blanco</td>
-                            <td>
-                                <p>12.50</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div id="plato1">
-            <div id="botones">
-                <button>2</button>
-                <button>S/ 25.00</button>
-                <button>X</button>
-            </div>
-            <div id="contenido">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Pollo a la plancha con arroz blanco</td>
-                            <td>
-                                <p>12.50</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div id="plato1">
-            <div id="botones">
-                <button>2</button>
-                <button>S/ 25.00</button>
-                <button>X</button>
-            </div>
-            <div id="contenido">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Pollo a la plancha con arroz blanco y tocino cocido</td>
-                            <td>
-                                <p>12.50</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div id="plato1">
-            <div id="botones">
-                <button>2</button>
-                <button>S/ 25.00</button>
-                <button>X</button>
-            </div>
-            <div id="contenido">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Pollo a la plancha con arroz blanco</td>
-                            <td>
-                                <p>12.50</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div id="plato1">
-            <div id="botones">
-                <button>2</button>
-                <button>S/ 25.00</button>
-                <button>X</button>
-            </div>
-            <div id="contenido">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Pollo a la plancha con arroz blanco</td>
-                            <td>
-                                <p>12.50</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <div id="dishes">
+        <div class="dishContainer">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Pollo a la plancha con arroz blanco</td>
+                        <td><button>12.50</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
