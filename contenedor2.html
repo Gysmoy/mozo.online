@@ -53,6 +53,7 @@
         #namePriceContainer tbody tr:nth-child(1) td:nth-child(1) {
             width: 100%;
             border-radius: 3px 0 0 0;
+            font-weight: bold;
         }
 
         #namePriceContainer tbody tr:nth-child(1) td:nth-child(2) {
@@ -82,6 +83,8 @@
         #max,
         #max5 {
             padding: 4px 8px;
+            background-color: #fff;
+            color: rgb(20, 20, 20);
             border: 2px solid #fff;
             border-radius: 15px;
             font-size: medium;
@@ -117,10 +120,16 @@
             font-weight: bold;
             border: 2px solid #6698ff;
             border-radius: 5px;
+            cursor: pointer;
+            user-select: none;
+            transition: 0.3s;
         }
 
         #totalPrice::before {
             content: 'S/ ';
+        }
+        #totalPrice.dolar::before {
+            content: '$ '
         }
 
         #accept,
@@ -192,8 +201,8 @@
                         <div>
                             <button id="min">-</button>
                             <input type="number" id="quantity" min="0" value="0" max="20">
-                            <button id="max" value="1">+</button>
-                            <button id="max5" value="5">+5</button>
+                            <button id="max">+</button>
+                            <button id="max5">+5</button>
                         </div>
                     </td>
                     <td>
@@ -219,6 +228,15 @@
     <script src="/assets/js/jquery-3.6.0.min.js"></script>
     <script>
         var price = 12.50;
+        var dolar = 4.08;
+        $('#totalPrice').click(function() {
+            if($(this).hasClass('dolar')) {
+                $(this).removeClass('dolar');
+            } else {
+                $(this).addClass('dolar');
+            }
+            $('#quantity').trigger('change');
+        })
         $('#min').click(function () {
             var input = $('#quantity');
             var quantity = parseInt(input.val());
@@ -263,9 +281,14 @@
                 quantity = 0;
             }
             $(this).val(quantity);
-            var totalPrice = (quantity * price).toFixed(2);
+            var totalPrice;
+            if($('#totalPrice').hasClass('dolar')) {
+                totalPrice = (quantity * price) / dolar;
+            } else {
+                totalPrice = quantity * price;
+            }
 
-            $('#totalPrice').text(totalPrice);
+            $('#totalPrice').text(totalPrice.toFixed(2));
         })
     </script>
 </body>
