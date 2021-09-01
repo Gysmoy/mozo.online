@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+            box-sizing: border-box;
+        }
+
+        #team1 {
+            display: block;
+            position: relative;
+            background-color: rgba(100, 148, 237, 0.75);
+            height: 50vh;
+            transition: all 0.3s;
+            border-radius: 0 0 50% 50%;
+        }
+
+        #team2 {
+            display: block;
+            position: relative;
+            background-color: rgba(220, 20, 60, 0.75);
+            height: 50vh;
+            transition: all 0.3s;
+            border-radius: 50% 50% 0 0;
+        }
+
+        button {
+            position: absolute;
+            z-index: 2;
+            padding: 4px 8px;
+            font-size: medium;
+            border-radius: 5px;
+            border: 2px solid rgb(20, 20, 20);
+            background-color: rgb(20, 20, 20);
+            color: #fff;
+            box-shadow: 2.5px 2.5px 5px rgba(20, 20, 20, 0.5);
+            cursor: pointer;
+            outline: none;
+        }
+
+        #team1>button {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+        }
+
+        #team2>button {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="team1">
+        <span></span><button>Impulsar</button><span></span>
+    </div>
+    <div id="team2">
+        <span></span><button>Impulsar</button><span></span>
+    </div>
+
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+    <script>
+        var maxHeight = $(document).height();
+        var toques;
+        while (true) {
+            toques = parseInt(prompt('¿A cuántos toques desea jugar?'));
+            if (toques) {
+                toques = toques;
+                break;
+            } else {
+                continue;
+            }
+        }
+
+        var increment = Math.round((maxHeight / 2) / toques);
+        function team1Increment() {
+            var team1 = $('#team1');
+            var team2 = $('#team2');
+
+            var height1 = team1.height();
+            var height2 = team2.height();
+
+            if (height1 + increment >= maxHeight) {
+                alert('Team1 es ganador!');
+                team1.height(maxHeight / 2);
+                team2.height(maxHeight / 2);
+            } else {
+                team1.height(height1 + increment);
+                team2.height(height2 - increment);
+            }
+        }
+
+        function team2Increment() {
+            var team2 = $('#team2');
+            var team1 = $('#team1');
+
+            var height2 = team2.height();
+            var height1 = team1.height();
+
+            if (height2 + increment >= maxHeight) {
+                alert('Team2 es ganador!');
+                team1.height(maxHeight / 2);
+                team2.height(maxHeight / 2);
+            } else {
+                team2.height(height2 + increment);
+                team1.height(height1 - increment);
+            }
+        }
+
+        $('#team1 > button').click(team1Increment);
+        $('#team2 > button').click(team2Increment);
+
+        $(document).keyup(function (keyboard) {
+            
+            switch (keyboard.keyCode) {
+                case 70:
+                    team1Increment();
+                    console.log(keyboard.keyCode)
+                    break;
+                case 74:
+                    team2Increment();
+                    console.log(keyboard.keyCode)
+                    break;
+                default:
+                    break;
+            }
+        })
+    </script>
+</body>
+
+</html>
