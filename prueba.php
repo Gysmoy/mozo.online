@@ -3,7 +3,7 @@
 $datos_post = json_encode(
     array(
         'tipoDocumento' => 'DNI',
-        'codigoDocumento' => '27427864'
+        'codigoDocumento' => '72941485'
     )
 );
 
