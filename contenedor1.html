@@ -39,24 +39,34 @@
             background-position: center center;
         }
 
-        .dishContainer>button {
+        .dishContainer>button[data-id="quantity"],
+        .dishContainer>button[data-id="remove"] {
             display: none;
+            cursor: pointer;
         }
 
-        .dishContainer>button.selected {
+        .dishContainer>button[data-id="quantity"].selected,
+        .dishContainer>button[data-id="remove"].selected {
             display: unset;
             position: absolute;
-            top: -12px;
-            right: -12px;
+            top: -4px;
             padding: 1px 5px;
-            border-radius: 15px;
             font-size: medium;
             font-weight: bold;
             border: 2px solid rgb(20, 20, 20);
-            border-bottom-left-radius: 5px;
-            background-color: #ff3b3b;
             color: #fff;
-            cursor: pointer;
+        }
+
+        .dishContainer>button[data-id="quantity"].selected {
+            right: 27px;
+            border-radius: 5px 1px 5px 10px;
+            background-color: #6698ff;
+        }
+
+        .dishContainer>button[data-id="remove"].selected {
+            right: 2px;
+            border-radius: 1px 5px 10px 5px;
+            background-color: #ff3b3b;
         }
 
         .dishContainer>table {
@@ -97,60 +107,100 @@
 <body>
     <div id="dishes">
         <div class="dishContainer">
-            <button class="selected" title="Quitar">X</button>
-            <table><tbody><tr>
+            <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
+            <button data-id="remove" class="selected" title="Quitar">X</button>
+            <table>
+                <tbody>
+                    <tr>
                         <td>Pollo a la plancha con arroz blanco</td>
                         <td><button>12.50</button></td>
-            </tr></tbody></table>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="dishContainer">
-            <button class="selected" title="Quitar">X</button>
-            <table><tbody><tr>
+            <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
+            <button data-id="remove" class="selected" title="Quitar">X</button>
+            <table>
+                <tbody>
+                    <tr>
                         <td>Pollo a la plancha con arroz blanco</td>
                         <td><button>12.50</button></td>
-            </tr></tbody></table>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="dishContainer">
-            <button class="selected" title="Quitar">X</button>
-            <table><tbody><tr>
+            <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
+            <button data-id="remove" class="selected" title="Quitar">X</button>
+            <table>
+                <tbody>
+                    <tr>
                         <td>Pollo a la plancha con arroz blanco</td>
                         <td><button>12.50</button></td>
-            </tr></tbody></table>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="dishContainer">
-            <button class="selected" title="Quitar">X</button>
-            <table><tbody><tr>
+            <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
+            <button data-id="remove" class="selected" title="Quitar">X</button>
+            <table>
+                <tbody>
+                    <tr>
                         <td>Pollo a la plancha con arroz blanco</td>
                         <td><button>12.50</button></td>
-            </tr></tbody></table>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="dishContainer">
-            <button class="selected" title="Quitar">X</button>
-            <table><tbody><tr>
+            <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
+            <button data-id="remove" class="selected" title="Quitar">X</button>
+            <table>
+                <tbody>
+                    <tr>
                         <td>Pollo a la plancha con arroz blanco</td>
                         <td><button>12.50</button></td>
-            </tr></tbody></table>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="dishContainer">
-            <button class="selected" title="Quitar">X</button>
-            <table><tbody><tr>
+            <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
+            <button data-id="remove" class="selected" title="Quitar">X</button>
+            <table>
+                <tbody>
+                    <tr>
                         <td>Pollo a la plancha con arroz blanco</td>
                         <td><button>12.50</button></td>
-            </tr></tbody></table>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="dishContainer">
-            <button class="selected" title="Quitar">X</button>
-            <table><tbody><tr>
+            <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
+            <button data-id="remove" class="selected" title="Quitar">X</button>
+            <table>
+                <tbody>
+                    <tr>
                         <td>Pollo a la plancha con arroz blanco</td>
                         <td><button>12.50</button></td>
-            </tr></tbody></table>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="dishContainer">
-            <button class="selected" title="Quitar">X</button>
-            <table><tbody><tr>
+            <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
+            <button data-id="remove" class="selected" title="Quitar">X</button>
+            <table>
+                <tbody>
+                    <tr>
                         <td>Pollo a la plancha con arroz blanco</td>
                         <td><button>12.50</button></td>
-            </tr></tbody></table>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
