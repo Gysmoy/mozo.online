@@ -100,7 +100,7 @@ if (isset($_GET['page'])) {
         </style>
         <link rel="stylesheet" href="/assets/css/style.css">
         <script type="text/javascript">
-            var idPage = '<?php echo $_GET['page']; ?>';
+            var idPage = '<?php echo $_GET['page'];?>';
         </script>
     </head>
 
@@ -113,112 +113,89 @@ if (isset($_GET['page'])) {
             </style>
             <img src="/<?php echo $logoImage; ?>" alt="Mozo en línea" id="logo" loading="lazy">
             <div>
-                <select id="platos"></select>
+                <select id="platos"><?php
+                                    foreach ($dishes as $key => $value) {
+                                        echo '
+                <option value="' . $key . '">' . $value['name'] . '</option>
+                ';
+                                    }
+                                    ?>
+                </select>
                 <button id="ordenar">Ordenar [<span id="total">S/ 00.00</span>]</button>
                 <button id="btncarrito">🛒 [<span id="spancarrito">0</span>]</button>
             </div>
         </header>
         <main>
-            <div id="title">Title Here</div>
             <div id="dishes">
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <?php
+            foreach ($dishes as $key => $value) {
+                echo '
+                <div id="' . $key . '">
+                    <div class="title">' . $value['name'] . '</div>
+                    <div class="dishesContainer">
+                ';
+                foreach ($value['dishes'] as $dish) {
+                    $imgPath = 'files/' . $idUser . '/img/';
+                    if(
+                        file_exists($imgPath . 'dishes/' . $dish['image'] . '.jpg')
+                    ) {
+                        $image = $imgPath . 'dishes/' . $dish['image'] . '.jpg';
+                    } else if (
+                        file_exists($imgPath . 'default.jpg')
+                    ) {
+                        $image = $imgPath . 'default.jpg';
+                    } else {
+                        $image = 'img/default.jpg';
+                    }
+                    
+                    $name = $dish['name'];
+                    $id = hash('CRC32', $name);
+                    $price = number_format($dish['price'], 2);
+                    $data = json_encode($dish);
+                    echo '
+                    <div
+                        id="' . $id . '"
+                        quantity="0"
+                        data-dish=\'' . $data . '\'>
+                        <div class="botones">
+                            <button>0</button>
+                            <button>S/ 00.00</button>
+                            <button>X</button>
+                        </div>
+                        <div class="contain">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td
+                                            style="
+                                            background: linear-gradient(to right,
+                                                rgba(20, 20, 20, 0.5) 40%,
+                                                rgb(20, 20, 20)),
+                                                url(/'.$image.');
+                                            background-size: cover;
+                                            background-position: center center;
+                                        ">' . $name . ' con arroz blanco y patatas fritas con yuca y huevo</td>
+                                        <td>
+                                            <p>' . $price . '</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    ';
+                }
+                echo '
+                    </div>
                 </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                ';
+            }
+            ?>
             </div>
         </main>
+        <form action="carta.php?page=<?php echo $_GET['page']; ?>" method="post" style="display: none;">
+            <textarea name="carta" id="carta"></textarea>
+        </form>
         <footer>
             <ul>
                 <li>Copyright &copy; Mozo en línea</li>
@@ -228,6 +205,9 @@ if (isset($_GET['page'])) {
         </footer>
         <script type="text/javascript" src="/assets/js/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="/assets/js/getDishes.js"></script>
+        <script type="text/javascript" src="/assets/js/carrito.js"></script>
+        <!--script type="text/javascript" src="/assets/js/fade.js"></script-->
+        <script type="text/javascript" src="/assets/js/changeQuantity.js"></script>
     </body>
 
     </html>
@@ -235,5 +215,5 @@ if (isset($_GET['page'])) {
 <?php
 } else {
     include_once 'home/index.php';
-}
+} 
 ?>
