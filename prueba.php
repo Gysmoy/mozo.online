@@ -30,14 +30,6 @@ $resultado = file_get_contents('https://oim.mapfre.com.pe/oim_polizas/api/form/p
 
 $res = json_decode($resultado, true);
 
-function getAge($fNac)
-{
-    $nacimiento = new DateTime($fNac);
-    $ahora = new DateTime(date("Y-m-d"));
-    $diferencia = $ahora->diff($nacimiento);
-    return $diferencia->format("%y");
-}
-
 if( $res['OperationCode'] == 200) {
     $data = [
         'tipoDoc' => $res['Data']['TipoDocumento'],
@@ -60,7 +52,7 @@ $data = [
 
 header('Content-type: text/javascript');
 
-//print_r($data);
-echo json_encode($data, JSON_PRETTY_PRINT);
+print_r($res);
+//echo json_encode($data, JSON_PRETTY_PRINT);
 
 ?>
