@@ -7,7 +7,7 @@
 
 body {
     width: 100%;
-    max-width: 1080px;
+    max-width: 1120px;
     margin: auto;
     background-color: var(--general-background);
 }
@@ -197,11 +197,11 @@ main {
     border: 2px solid rgb(20, 20, 20);
     border-radius: 5px;
     box-shadow: 2.5px 2.5px 5px grey;
-    background: linear-gradient(to bottom,
+    /*background: linear-gradient(to bottom,
             rgba(20, 20, 20, 0.40) 40%,
             rgb(20, 20, 20)), url('/files/maindata/prueba.jpg');
     background-size: cover;
-    background-position: center center;
+    background-position: center center;*/
 }
 
 #dishes > .dishContainer>button[data-id="quantity"],
@@ -267,90 +267,180 @@ main {
     content: 'S/ ';
 }
 
-
-
-
-
-
-
-
-
-
-
-#dishes > div > .dishesContainer {
-    margin-top: 15px;
-    max-width: 1122px;
-    padding: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    font-family: 'Courier New', Courier, monospace;
-    
+/* Shower styles */
+section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
 }
-
-#dishes > div > .dishesContainer > div {
-    position: relative;
-    margin: 5px;
-    max-width: 100%;
+#shower * {
+    font-family: 'Courier New', Courier, monospace;
+}
+#shower {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
     width: 360px;
     height: max-content;
     background-color: rgb(20, 20, 20);
-    border-radius: 5px 20px;
+    border-radius: 5px;
     box-shadow: 2.5px 2.5px 5px grey;
-    border: 2px solid rgb(20, 20, 20);
-}
-
-#dishes > div > .dishesContainer > div > .botones {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 5px;
-    box-shadow: inset 2.5px 2.5px 5px grey;
-    border: 2px solid rgb(20, 20, 20);
-}
-
-#dishes > div > .dishesContainer > div > .botones > button {
-    border-radius: 15px;
-    padding: 1px 5px;
-    border: none;
-    background-color: grey;
     color: #fff;
-    cursor: pointer;
-    box-shadow: 2.5px 2.5px 5px grey;
-    font-size: medium;
-    font-family: 'Courier New', Courier, monospace;
-}
-#dishes > div > .dishesContainer > div > .botones > button:nth-child(1) {
-    background-color: #089000;
-}
-#dishes > div > .dishesContainer > div > .botones > button:nth-child(2) {
-    background-color: #6698ff;
-}
-#dishes > div > .dishesContainer > div > .botones > button:nth-child(3) {
-    background-color: #ff3b3b;
+    border: 2px solid rgb(20, 20, 20);
 }
 
-#dishes > div > .dishesContainer > div > .contain > table {
+#namePriceContainer,
+#orderContainer {
     border-spacing: 0;
 }
 
-#dishes > div > .dishesContainer > div > .contain > table > tbody > tr > td {
-    padding: 45px 10px 10px 10px;
-    color: #fff;
-    vertical-align: middle;
-}
-
-#dishes > div > .dishesContainer > div > .contain > table > tbody > tr > td:nth-child(1) {
-    border-radius: 3px 0 0 18px;
+/* Name and Price's Style */
+#namePriceContainer tbody tr:nth-child(1) {
     text-shadow: 0 0 10px black;
-    color: #fff;
+    /*background: linear-gradient(to bottom,
+            rgba(20, 20, 20, 0.125) 40%,
+            rgba(20, 20, 20, 0.625)), url('/files/maindata/prueba.jpg');
+    background-size: cover;
+    background-position: center center;*/
+}
+
+#namePriceContainer tbody tr:nth-child(1) td {
+    padding: 150px 10px 10px 10px;
+}
+
+#namePriceContainer tbody tr:nth-child(1) td:nth-child(1) {
     width: 100%;
-    height: 2;
-    max-lines: 2;
-    min-lines: 2;
+    border-radius: 3px 0 0 0;
+    font-weight: bold;
+}
+
+#namePriceContainer tbody tr:nth-child(1) td:nth-child(2) {
+    border-radius: 0 3px 0 0;
+}
+
+#namePriceContainer tbody tr:nth-child(1) td:nth-child(2) p {
+    width: max-content;
+    font-weight: bold;
+}
+
+#namePriceContainer tbody tr:nth-child(1) td:nth-child(2) p::before {
+    content: 'S/ ';
+}
+
+/* Order Form container's style */
+#orderContainer tr td {
+    padding: 10px;
+    text-align: center;
+}
+
+#orderContainer tr:nth-child(1) td {
+    width: 100%;
+}
+
+#min,
+#max,
+#max5 {
+    padding: 4px 8px;
+    background-color: #fff;
+    color: rgb(20, 20, 20);
+    border: 2px solid #fff;
+    border-radius: 15px;
+    font-size: medium;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
+
+#quantity {
+    padding: 4px 8px;
+    border: 2px solid #fff;
+    background-color: rgb(40, 40, 40);
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+    outline: none;
+    width: 50px;
+}
+
+#quantity::-webkit-inner-spin-button,
+#quantity::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#totalPrice {
+    margin: auto;
+    padding: 4px 8px;
+    width: max-content;
+    background-color: #6698ff;
+    font-weight: bold;
+    border: 2px solid #6698ff;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.3s;
+}
+
+#totalPrice::before {
+    content: 'S/ ';
+}
+#totalPrice.dolar::before {
+    content: '$ '
+}
+
+#accept,
+#cancel {
+    padding: 4px 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+    font-size: medium;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+}
+
+#accept {
+    border-color: #089000;
+    background-color: #089000;
+}
+
+#cancel {
+    border-color: #ff3b3b;
+    background-color: #ff3b3b;
+}
+
+#accept:hover,
+#cancel:hover {
+    filter: opacity(0.85);
+}
+
+#orderContainer table tbody tr:nth-child(2) td:nth-child(1) {
+    text-align: left;
+}
+
+#specification {
+    display: block;
+    width: 100%;
+    height: 80px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: rgb(40, 40, 40);
+    padding: 5px;
+    color: #fff;
+    outline: none;
+    resize: none;
+    overflow-x: hidden;
 }
 
 
@@ -361,27 +451,10 @@ main {
 
 
 
-main > #divcarrito .title {
-    background-color: var(--carrito-title-background);
-    color: var(--carrito-title-color);
-}
-main > #divcarrito table thead tr th {
-    background-color: var(--carrito-table-thead-background);
-    color: var(--carrito-table-thead-color);
-}
-main > #divcarrito table tbody tr td {
-    color: var(--carrito-table-tbody-color);
-    vertical-align: middle;
-}
-main > #divcarrito table tbody tr td > p {
-    background-color: var(--carrito-table-tbody-price-background);
-    color: var(--carrito-table-tbody-price-color);
-}
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
+
+
+
+
 
 footer {
     max-width: 1080px;
@@ -443,110 +516,6 @@ footer > ul li a {
     color: var(--main-table-tbody-orderButton-color);
 }
 
-#shower {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(4px);
-    cursor: pointer;
-}
-#shower > div {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: default;
-    background-color: var(--hmf-background);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 10px auto;
-    width: calc(95vw - 20px);
-    max-width: 480px;
-    text-align: center;
-}
-#shower > div > img {
-    width: 100%;
-    box-shadow: 0 0 10px var(--hmf-shadow);
-    border-radius: 5px;
-}
-#shower > div > h2 {
-    margin: 20px 0 40px;
-}
-#shower > div > div {
-    display: flex;
-}
-#shower > div > div > div {
-    width: 50%;
-    text-align: center;
-    align-content: center;
-    align-self: center;
-    align-items: center;
-}
-#precio > p {
-    font-size: medium;
-    font-weight: bold;
-    margin: auto;
-    padding: 6px 12px;
-    background-color: var(--main-table-tbody-price-background);
-    width: max-content;
-    border-radius: 15px;
-    color: var(--main-table-tbody-price-color);
-}
-#precio > p::before {
-    content: 'S/ ';
-}
-#order > button {
-    font-family: 'Courier New', Courier, monospace;
-    padding: 6px 10px;
-    font-size: medium;
-    border-radius: 15px;
-    border: none;
-    background-color: var(--main-table-tbody-orderButton-background);
-    color: var(--main-table-tbody-orderButton-color);
-    cursor: pointer;
-    outline: none;
-}
-#order > input {
-    padding: 6px 12px;
-    width: 60px;
-    border: 1px solid var(--main-table-tbody-orderInput-border);
-    border-radius: 5px;
-    outline: none;
-    text-align: center;
-}
-
-#accept, #cancel {
-    align-content: center;
-    padding: 6px 12px 6px 3px;
-    font-size: medium;
-    width: max-content;
-    margin: 40px auto 0;
-    border-radius: 5px;
-    border: 2px solid #059657;
-    background-color: #059657;
-    color: #ffffff;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-#accept > span {
-    background-color: #fff;
-    color: #059657;
-    padding: 4px 8px;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-right: 10px;
-}
-#accept > span::before {
-    content: 'S/ ';
-}
-#cancel {
-    padding: 6px 12px;
-    background-color: #ff3b3b;
-    border-color: #ff3b3b;
-}
 @media screen and (max-width: 720px) {
     main > #divcarrito table tbody tr td:first-child,
     main > #divcarrito table thead tr th:first-child {

@@ -25,6 +25,23 @@ if (isset($_POST['idPage'])) {
         $dishesData = file_get_contents($dishesPath);
         $dishes = json_decode($dishesData, true);
 
+        foreach ($dishes as $idDishes => $dishesContain) {
+            foreach ($dishesContain['dishes'] as $position => $dish) {
+                $imgPath = '/files/' . $idUser . '/img/';
+                if(
+                    file_exists('../..' . $imgPath . 'dishes/' . $dish['image'] . '.jpg')
+                ) {
+                    $dishes[$idDishes]['dishes'][$position]['image'] = $imgPath . 'dishes/' . $dish['image'] . '.jpg';
+                } else if (
+                    file_exists('../..' . $imgPath . 'default.jpg')
+                ) {
+                    $dishes[$idDishes]['dishes'][$position]['image'] = $imgPath . 'default.jpg';
+                } else {
+                    $dishes[$idDishes]['dishes'][$position]['image'] = '/img/default.jpg';
+                }
+            }
+        }
+
         $data = [
             'status' => 200,
             'message' => 'Los datos se han obtenido sin errores',

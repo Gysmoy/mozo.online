@@ -19,7 +19,16 @@ function listDishes(idDish) {
             'position': position
         });
         var dishContainer = `
-        <div class="dishContainer" data-dish='${dataDish}' onclick="openOrderer(this)">
+        <div class="dishContainer"
+            data-dish='${dataDish}'
+            onclick="openOrderer(this)"
+            style="
+                background: linear-gradient(to bottom,
+                        rgba(20, 20, 20, 0.125) 40%,
+                        rgba(20, 20, 20, 0.625)), url('${dish.image}');
+                background-size: cover;
+                background-position: center center;
+            ">
             <button data-id="quantity" class="" title="Platos ordenados">0</button>
             <button data-id="remove" class="" title="Quitar">X</button>
             <table>
@@ -55,10 +64,26 @@ $.ajax({
     }
 })
 
+$('#platos').change(function() {
+    listDishes($(this).val());
+})
+
 function openOrderer(dishContainer) {
     var dataDish = $(dishContainer).data('dish');
     var idDish = dataDish.idDish;
     var position = dataDish.position;
     var dishContent = dishes[idDish].dishes[position];
     console.log(dishContent);
+    $('#namePriceContainer tbody tr:nth-child(1)').css({
+        'background': `linear-gradient(to bottom,
+            rgba(20, 20, 20, 0.125) 40%,
+            rgba(20, 20, 20, 0.625)), url('${dishContent.image}')`,
+        'background-size': 'cover',
+        'background-position': 'center center'
+    });
+    $('#name').text(dishContent.name);
+    $('#realPrice').text(dishContent.price.toFixed(2));
+    $('#quantity').attr('max', dishContent.stock);
+    $('section').fadeIn();
+
 }

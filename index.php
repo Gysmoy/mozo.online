@@ -120,105 +120,52 @@ if (isset($_GET['page'])) {
         </header>
         <main>
             <div id="title">Title Here</div>
-            <div id="dishes">
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="dishContainer">
-                    <button data-id="quantity" class="selected" title="Platos ordenados">0</button>
-                    <button data-id="remove" class="selected" title="Quitar">X</button>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Pollo a la plancha con arroz blanco</td>
-                                <td><button>12.50</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <div id="dishes"></div>
         </main>
+        <section style="display: none;">
+            <div id="shower">
+                <table id="namePriceContainer">
+                    <tbody>
+                        <tr>
+                            <td id="name">Pollo a la plancha con arroz blanco</td>
+                            <td>
+                                <p id="realPrice">12.50</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="orderContainer">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div>
+                                    <button id="min">-</button>
+                                    <input type="number" id="quantity" min="0" value="0" max="20">
+                                    <button id="max">+</button>
+                                    <button id="max5">+5</button>
+                                </div>
+                            </td>
+                            <td>
+                                <div id="totalPrice">0.00</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">
+                                <textarea id="specification" placeholder="Especificaciones..."></textarea>
+                            </td>
+                            <td>
+                                <button id="accept">Aceptar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="cancel">Cancelar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
         <footer>
             <ul>
                 <li>Copyright &copy; Mozo en línea</li>
