@@ -12,6 +12,17 @@ function removeFromCart(position) {
     delete cart[position];
 }
 
+function clearShower() {
+    $('#namePriceContainer tbody tr:nth-child(1)').attr('style', null);
+    $('#name').text(null);
+    $('#realPrice').text((0).toFixed(2));
+    $('#quantity').val(0).attr('max', 0);
+    $('#totalPrice').text((0).toFixed(2));
+    $('#specification').val(null);
+    $('#shower').attr('data-dish', null);
+    $('#shower').parent().fadeOut();
+}
+
 $('#accept').click(function () {
     var dataDish = JSON.parse($('#shower').attr('data-dish'));
     var position = `${dataDish.idDish}-${dataDish.position}`;
