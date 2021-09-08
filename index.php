@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 include_once 'assets/php/database.php';
 
