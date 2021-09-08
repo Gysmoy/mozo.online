@@ -60,98 +60,6 @@ header div > #btncarrito {
     color: var(--header-button-mainColor);
 }
 
-/* INICIO Nuevo estilo para platos */
-fieldset {
-    margin: 5px auto 0px;
-    padding: 10px 15px;
-    width: calc(33.334% - 5px);
-    max-width: 300px;
-    display: inline-flex;
-    flex-wrap: nowrap;
-    border-radius: 5px;
-    border: 2px solid #089000;
-    background-color: #08900022;
-    cursor: pointer;
-    z-index: 0;
-}
-@media  screen and (max-width: 840px){
-    fieldset {
-        width: calc(50% - 2.5px);
-        max-width: 300px;
-    }  
-}
-@media  screen and (max-width: 480px){
-    fieldset {
-        width: 100%;
-        max-width: 300px;
-    }  
-}
-fieldset[quantity="0"] {
-    border: 2px solid #b1b1b1;
-    background-color: #b1b1b122;
-}
-fieldset[quantity="0"] legend {
-    background-image: linear-gradient(to bottom, transparent calc(50% - 1px), #b1b1b1 calc(50% - 1px));
-}
-fieldset legend {
-    position: relative;
-    padding: 2px;
-    border-radius: 10px;
-    text-align: right;
-    background-image: linear-gradient(to bottom, transparent calc(50% - 1px), #089000 calc(50% - 1px));
-    width: max-content;
-    cursor: default;
-    
-}
-fieldset legend div {
-    padding: 5px;
-    background-color: #fff;
-    border-radius: 8px;
-}
-fieldset legend div button {
-    cursor: pointer;
-    padding: 1px 6px;
-    font-size: medium;
-    border-radius: 10px;
-    border: none;
-    background-color: darkslategrey;
-    color: #fff;
-}
-fieldset legend div button:nth-child(1) {
-    background-color: #089000;
-}
-fieldset legend div button:nth-child(2) {
-    background-color: #6698ff;
-}
-fieldset legend div button:nth-child(3) {
-    background-color: #ff3b3b;
-}
-fieldset > table tbody tr td{
-    display: table-cell !important;
-}
-fieldset > table,
-fieldset > table tbody,
-fieldset > table tbody tr {
-    width: 100% !important;
-}
-fieldset > table td:nth-child(1) {
-    width: 100%;
-    text-align: left;
-    vertical-align: middle;
-}
-fieldset > table td:nth-child(2) p {
-    width: max-content;
-    text-align: right;
-    vertical-align: middle;
-    background-color: #6698ff;
-    border-radius: 15px;
-    padding: 4px 8px;
-    color: #fff;
-}
-fieldset > table td:nth-child(2) p::before {
-    content: 'S/ ';
-}
-
 /* FIN Nuevo estilo para platos */
 main {
     border-top: 4px solid var(--main-title-background);
@@ -239,6 +147,7 @@ main {
     height: 240px;
     max-height: 120px;
     border-spacing: 0;
+    cursor: pointer;
 }
 
 #dishes > .dishContainer>table>tbody>tr>td {

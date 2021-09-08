@@ -21,7 +21,7 @@ function listDishes(idDish) {
         var dishContainer = `
         <div class="dishContainer"
             data-dish='${dataDish}'
-            onclick="openOrderer(this)"
+            dish-id="${idDish}-${position}"
             style="
                 background: linear-gradient(to bottom,
                         rgba(20, 20, 20, 0.125) 40%,
@@ -30,8 +30,8 @@ function listDishes(idDish) {
                 background-position: center center;
             ">
             <button data-id="quantity" class="" title="Platos ordenados">0</button>
-            <button data-id="remove" class="" title="Quitar">X</button>
-            <table>
+            <button data-id="remove" class="" title="Quitar" onclick="removeFromCart($(this).parent().attr('dish-id'))">X</button>
+            <table onclick="openOrderer($(this).parent())">
                 <tbody>
                     <tr>
                         <td>${dish.name}</td>
@@ -64,7 +64,7 @@ $.ajax({
     }
 })
 
-$('#platos').change(function() {
+$('#platos').change(function () {
     listDishes($(this).val());
 })
 
@@ -73,7 +73,7 @@ function openOrderer(dishContainer) {
     var idDish = dataDish.idDish;
     var position = dataDish.position;
     var dishContent = dishes[idDish].dishes[position];
-    console.log(dishContent);
+    $('#shower').attr('data-dish', JSON.stringify(dataDish));
     $('#namePriceContainer tbody tr:nth-child(1)').css({
         'background': `linear-gradient(to bottom,
             rgba(20, 20, 20, 0.125) 40%,
@@ -85,5 +85,4 @@ function openOrderer(dishContainer) {
     $('#realPrice').text(dishContent.price.toFixed(2));
     $('#quantity').attr('max', dishContent.stock);
     $('section').fadeIn();
-
 }

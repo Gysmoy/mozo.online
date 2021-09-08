@@ -52,7 +52,7 @@ $data = [
 
 header('Content-type: text/javascript');
 
-print_r($res);
+print_r($data);
 //echo json_encode($data, JSON_PRETTY_PRINT);
 
 ?>

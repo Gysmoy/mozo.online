@@ -127,9 +127,9 @@ if (isset($_GET['page'])) {
                 <table id="namePriceContainer">
                     <tbody>
                         <tr>
-                            <td id="name">Pollo a la plancha con arroz blanco</td>
+                            <td id="name"></td>
                             <td>
-                                <p id="realPrice">12.50</p>
+                                <p id="realPrice"></p>
                             </td>
                         </tr>
                     </tbody>
@@ -140,7 +140,7 @@ if (isset($_GET['page'])) {
                             <td>
                                 <div>
                                     <button id="min">-</button>
-                                    <input type="number" id="quantity" min="0" value="0" max="20">
+                                    <input type="number" id="quantity" min="0" value="0" max="0">
                                     <button id="max">+</button>
                                     <button id="max5">+5</button>
                                 </div>
@@ -175,6 +175,8 @@ if (isset($_GET['page'])) {
         </footer>
         <script type="text/javascript" src="/assets/js/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="/assets/js/getDishes.js"></script>
+        <script type="text/javascript" src="/assets/js/quantityPrice.js"></script>
+        <script type="text/javascript" src="/assets/js/addToCart.js"></script>
     </body>
 
     </html>
