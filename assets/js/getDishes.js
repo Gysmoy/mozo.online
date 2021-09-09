@@ -85,4 +85,10 @@ function openOrderer(dishContainer) {
     $('#realPrice').text(dishContent.price.toFixed(2));
     $('#quantity').attr('max', dishContent.stock);
     $('section').fadeIn();
+
+    var dataOfCart = cart[`${idDish}-${position}`];
+    if(dataOfCart != undefined) {
+        $('#quantity').val(dataOfCart.quantity).change();
+        $('#specification').val(dataOfCart.specification);
+    }
 }

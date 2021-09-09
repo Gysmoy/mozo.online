@@ -15,9 +15,9 @@ function removeFromCart(position) {
 function clearShower() {
     $('#namePriceContainer tbody tr:nth-child(1)').attr('style', null);
     $('#name').text(null);
-    $('#realPrice').text((0).toFixed(2));
+    $('#realPrice').text('0.00');
     $('#quantity').val(0).attr('max', 0);
-    $('#totalPrice').text((0).toFixed(2));
+    $('#totalPrice').text('0.00');
     $('#specification').val(null);
     $('#shower').attr('data-dish', null);
     $('#shower').parent().fadeOut();
@@ -27,21 +27,17 @@ $('#accept').click(function () {
     var dataDish = JSON.parse($('#shower').attr('data-dish'));
     var position = `${dataDish.idDish}-${dataDish.position}`;
     dataDish.quantity = parseInt($('#quantity').val());
-    dataDish.specification = $('#specification').val();
+    dataDish.specification = $('#specification').val().trim();
     if (dataDish.quantity > 0) {
         addToCart(position, dataDish);
     } else {
         removeFromCart(position);
     }
-    $('#shower').parent().fadeOut();
+    clearShower();
 })
 $('#cancel').click(function () {
-    $('#namePriceContainer tbody tr:nth-child(1)').attr('style', null);
-    $('#name').text(null);
-    $('#realPrice').text((0).toFixed(2));
-    $('#quantity').val(0).attr('max', 0);
-    $('#totalPrice').text((0).toFixed(2));
-    $('#specification').val(null);
-    $('#shower').attr('data-dish', null);
-    $('#shower').parent().fadeOut();
+    var dataDish = JSON.parse($('#shower').attr('data-dish'));
+    var position = `${dataDish.idDish}-${dataDish.position}`;
+    removeFromCart(position);
+    clearShower();
 })
