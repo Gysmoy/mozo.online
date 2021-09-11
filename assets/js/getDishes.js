@@ -18,6 +18,14 @@ function listDishes(idDish) {
             'idDish': idDish,
             'position': position
         });
+        var inCart = cart[`${idDish}-${position}`];
+        var isSelected = '';
+        var quantity = 0;
+        if (inCart != undefined) {
+            isSelected = 'selected';
+            quantity = inCart.quantity;
+        }
+        
         var dishContainer = `
         <div class="dishContainer"
             data-dish='${dataDish}'
@@ -29,8 +37,8 @@ function listDishes(idDish) {
                 background-size: cover;
                 background-position: center center;
             ">
-            <button data-id="quantity" class="" title="Platos ordenados">0</button>
-            <button data-id="remove" class="" title="Quitar" onclick="removeFromCart($(this).parent().attr('dish-id'))">X</button>
+            <button data-id="quantity" class="${isSelected}" title="Platos ordenados">${quantity}</button>
+            <button data-id="remove" class="${isSelected}" title="Quitar" onclick="removeFromCart($(this).parent().attr('dish-id'))">X</button>
             <table onclick="openOrderer($(this).parent())">
                 <tbody>
                     <tr>
