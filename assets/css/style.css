@@ -209,6 +209,9 @@ section {
 }
 
 /* Name and Price's Style */
+#namePriceContainer {
+    height: 210px;
+}
 #namePriceContainer tbody tr:nth-child(1) {
     text-shadow: 0 0 10px black;
     /*background: linear-gradient(to bottom,
@@ -219,7 +222,8 @@ section {
 }
 
 #namePriceContainer tbody tr:nth-child(1) td {
-    padding: 150px 10px 10px 10px;
+    vertical-align: bottom;
+    padding: 10px;
 }
 
 #namePriceContainer tbody tr:nth-child(1) td:nth-child(1) {

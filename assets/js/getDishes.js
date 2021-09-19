@@ -36,7 +36,7 @@ function listDishes(idDish) {
                         rgba(20, 20, 20, 0.625)), url('${dish.image}');
                 background-size: cover;
                 background-position: center center;
-            ">
+            " loading="lazy">
             <button data-id="quantity" class="${isSelected}" title="Platos ordenados">${quantity}</button>
             <button data-id="remove" class="${isSelected}" title="Quitar" onclick="removeFromCart($(this).parent().attr('dish-id'))">X</button>
             <table onclick="openOrderer($(this).parent())">
