@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOP | Gysmoy</title>
+    <script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-firestore.js"></script>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <style id="config"></style>
+</head>
+
+<body>
+
+    <header>
+        <img src="" alt="Mozo en línea" id="logo" loading="lazy">
+        <div>
+            <select id="menu"></select>
+            <button id="ordenar">Ordenar [<span id="total">S/ 00.00</span>]</button>
+            <button id="btncarrito">🛒 [<span id="spancarrito">0</span>]</button>
+        </div>
+    </header>
+    <main>
+        <div id="title">Title Here</div>
+        <div id="dishes"></div>
+    </main>
+    <section style="display: none;">
+        <div id="shower">
+            <table id="namePriceContainer">
+                <tbody>
+                    <tr>
+                        <td id="name"></td>
+                        <td>
+                            <p id="realPrice"></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table id="orderContainer">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <button id="min">-</button>
+                                <input type="number" id="quantity" min="0" value="0" max="0">
+                                <button id="max">+</button>
+                                <button id="max5">+5</button>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="totalPrice">0.00</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            <textarea id="specification" placeholder="Especificaciones..."></textarea>
+                        </td>
+                        <td>
+                            <button id="accept">Aceptar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="cancel">Cancelar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <footer>
+        <ul>
+            <li>Copyright &copy; Mozo en línea</li>
+            <li>Version 1.0.0</li>
+            <li>Powered by <a href="http://gysmoy.epizy.com"
+                    title="Carlos Manuel Gamboa Palomino y Ruth Najhely Gutierrez Castro">Gysmoy & Kizzi</a></li>
+        </ul>
+    </footer>
+
+    <script src="assets/js/setConfig.js"></script>
+    <script src="assets/js/setMenu.js"></script>
+    <script src="assets/js/firestore.js"></script>
+</body>
+
+</html>
