@@ -1,6 +1,7 @@
 function setConfig() {
     console.log(config);
     $('title').text(config.general.pageName);
+    $('#logo').attr('alt', config.general.pageName);
     var root = '';
     root += `--background: ${config.general.background};`;
     root += `--logo: ${config.general.logo};`;
