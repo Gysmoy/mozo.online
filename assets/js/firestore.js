@@ -1,3 +1,6 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+import { doc, onSnapshot, getFirestore } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+
 var firebaseConfig = {
     apiKey: "AIzaSyAGpDt6iCxpkSNL_5aU0SkEpD9Yw_dIixc",
     authDomain: "shop-40792.firebaseapp.com",
@@ -7,23 +10,12 @@ var firebaseConfig = {
     appId: "1:179521115808:web:0b99c249944008240a5bc5"
 };
 
-var idUser = '655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b';
-var config = {};
-var menu = {};
+const idUser = '655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b';
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getFirestore();
 
-var db = firebase.firestore();
-
-/*db.collection('users').doc(idUser).get().then((query) => {
-    config = query.data().config;
-    menu = query.data().menu;
-    setConfig();
-    setMenu();
-})*/
-
-db.collection('users').doc(idUser).onSnapshot((query) => {
+onSnapshot(doc(db, 'users', idUser), (query) => {
     config = query.data().config;
     menu = query.data().menu;
     setConfig();

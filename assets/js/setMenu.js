@@ -1,3 +1,5 @@
+var menu = {};
+
 function setMenu() {
     console.log(menu)
     $('#menu').empty();

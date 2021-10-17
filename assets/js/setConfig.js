@@ -1,3 +1,5 @@
+var config = {};
+
 function setConfig() {
     console.log(config);
     $('title').text(config.general.pageName);
