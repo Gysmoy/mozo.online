@@ -1,4 +1,5 @@
 var menu = {};
+var getImage;
 
 function setMenu() {
     console.log(menu)

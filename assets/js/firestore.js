@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
-import { doc, onSnapshot, getFirestore } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+import { doc, getDoc, onSnapshot, getFirestore } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
 
 var firebaseConfig = {
     apiKey: "AIzaSyAGpDt6iCxpkSNL_5aU0SkEpD9Yw_dIixc",
@@ -21,3 +21,15 @@ onSnapshot(doc(db, 'users', idUser), (query) => {
     setConfig();
     setMenu();
 })
+
+getImage =  async function getImage(id, type = 'HTML') {
+    type = type.toUpperCase();
+    const docRef = doc(db, 'images', idUser);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+        const image = docSnap.data();
+        return image;
+    } else {
+        console.log('');
+    }
+}
