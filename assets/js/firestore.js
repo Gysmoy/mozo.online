@@ -27,7 +27,7 @@ getImage =  async function getImage(id, type = 'HTML') {
     const docRef = doc(db, 'images', idUser);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-        const image = docSnap.data();
+        const image = docSnap.data()[id];
         return image;
     } else {
         console.log('');
