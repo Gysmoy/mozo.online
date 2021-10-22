@@ -16,20 +16,32 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore();
 
 onSnapshot(doc(db, 'users', idUser), (query) => {
-    config = query.data().config;
-    menu = query.data().menu;
-    setConfig();
-    setMenu();
+    if (JSON.stringify(config) === JSON.stringify(query.data().config)) { } else {
+        config = query.data().config;
+        setConfig();
+    }
+    if (JSON.stringify(menu) === JSON.stringify(query.data().menu)) { } else {
+        menu = query.data().menu;
+        setMenu();
+    }
 })
 
-getImage =  async function getImage(id, type = 'HTML') {
-    type = type.toUpperCase();
-    const docRef = doc(db, 'images', idUser);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-        const image = docSnap.data()[id];
-        return image;
+getImage = async function getImage(idImages, idImage) {
+    if (localStorage.getItem(idImage) == null) {
+        console.log('Obtuvo la imagen de la base de datos');
+        const docRef = doc(db, 'images', idUser, idImages, idImage);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            const image = docSnap.data().image;
+            localStorage.setItem(idImage, image);
+            return 'data:image/jpeg;base64,' + image;
+        } else {
+            return 'data:image/jpeg;base64,';
+        }
     } else {
-        console.log('');
+        console.log('Obtuvo la imagen de almacenamiento local');
+        const image = localStorage.getItem(idImage);
+        return 'data:image/jpeg;base64,' + image;
     }
+
 }

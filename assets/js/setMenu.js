@@ -18,7 +18,7 @@ function setDishes() {
     menu.forEach(dishes => {
         if (idMenu == dishes.id) {
             $('#title').text(dishes.name)
-            dishes.dishes.forEach(dish => {
+            dishes.dishes.forEach(async function(dish) {
                 var dataDish = JSON.stringify(dish);
                 var id = dish.id;
                 var name = dish.name;
@@ -28,7 +28,7 @@ function setDishes() {
                 <div id="${id}" stock="${stock}" price="${price}" class="dishContainer" style="
                         background: linear-gradient(to bottom,
                             rgba(20, 20, 20, 0.125) 40%,
-                            rgba(20, 20, 20, 0.625)), url('${id}');
+                            rgba(20, 20, 20, 0.625)), url('${await getImage(dishes.id, id)}');
                         background-size: cover;
                         background-position: center center;
                     " loading="lazy">
