@@ -1,9 +1,9 @@
 async function setGeneralConfig(o) {
-    $("title").text(o.pageName),
-    $("#logo").attr("alt", o.pageName);
+    $("title").text(o.pageName);
+    var b64Logo = await getImage('config', o.logo);
+    $("#logo").attr('src', b64Logo).attr("alt", o.pageName);
     var t = "";
-    t += `--background: '${await getImage('config', o.background)}';`, 
-    t += `--logo: '${await getImage('config', o.logo)}';`,
+    t += `--background: url('${await getImage('config', o.background)}');`, 
     t += `--font: ${o.font};`,
     $("#generalConfig").html(`:root {${t}}`);
 }

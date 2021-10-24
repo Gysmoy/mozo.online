@@ -3,13 +3,13 @@
     padding: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     box-sizing: border-box;
+    transition: 0.3s;
 }
 
 body {
     width: 100%;
     max-width: 1120px;
     margin: auto;
-    background-color: var(--background);
 }
 
 header {
@@ -18,7 +18,7 @@ header {
     align-content: center;
     text-align: center;
     box-shadow: 0 0 10px var(--header-shadow);
-    background-color: var(--header-background);
+    background-image: var(--background);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5px;
@@ -29,7 +29,7 @@ header > #logo {
     width: 100%;
     max-width: 250px;
     margin-top: 20px;
-    filter: drop-shadow(0 0 10px var(--header-logoShadow));
+    filter: drop-shadow(0 0 10px var(--header-shadow));
 }
 header div > #menu,
 header div > #ordenar,
