@@ -62,10 +62,10 @@ header div > #btncarrito {
 
 /* FIN Nuevo estilo para platos */
 main {
-    border-top: 4px solid var(--main-title-background);
-    background-color: var(--hmf-background);
+    border-top: 4px solid var(--title-background);
+    background-color: var(--main-background);
     min-height: 250px;
-    box-shadow: 0 0 10px var(--hmf-shadow);
+    box-shadow: 0 0 10px var(--main-shadow);
     padding: 0px 20px 20px;
     margin: 20px;
     border-radius: 5px;
@@ -373,11 +373,11 @@ section {
 footer {
     max-width: 1080px;
     text-align: center;
-    background-color: var(--hmf-background);
+    background-color: var(--footer-background);
     padding: 20px;
     margin: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 0 10px var(--hmf-shadow);
+    box-shadow: 0 0 10px var(--footer-shadow);
     border-radius: 5px;
 }
 footer > ul li {
@@ -385,13 +385,13 @@ footer > ul li {
     display: inline-flex;
     flex-wrap: wrap;
     padding: 5px 10px;
-    color: var(--main-table-tbody-color);
+    color: var(--footer-color);
     border-radius: 5px;
-    border-left: 2px solid var(--main-title-background);
-    border-right: 2px solid var(--main-title-background);
+    border-left: 2px solid var(--title-background);
+    border-right: 2px solid var(--title-background);
 }
 footer > ul li a {
-    color: var(--main-table-tbody-color);
+    color: var(--footer-color);
     margin-left: 5px;
 }
 .delCarrito,
