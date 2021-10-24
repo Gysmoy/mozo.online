@@ -3,13 +3,13 @@
     padding: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     box-sizing: border-box;
+    transition: 0.3s;
 }
 
 body {
     width: 100%;
     max-width: 1120px;
     margin: auto;
-    background-color: var(--general-background);
 }
 
 header {
@@ -17,8 +17,8 @@ header {
     align-self: center;
     align-content: center;
     text-align: center;
-    box-shadow: 0 0 10px var(--hmf-shadow);
-    background-color: var(--hmf-background);
+    box-shadow: 0 0 10px var(--header-shadow);
+    background-image: var(--background);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5px;
@@ -29,9 +29,9 @@ header > #logo {
     width: 100%;
     max-width: 250px;
     margin-top: 20px;
-    filter: drop-shadow(0 0 10px var(--header-logoShadow));
+    filter: drop-shadow(0 0 10px var(--header-shadow));
 }
-header div > #platos,
+header div > #menu,
 header div > #ordenar,
 header div > #btncarrito {
     margin: 20px 5px;
@@ -40,14 +40,14 @@ header div > #btncarrito {
     font-size: medium;
     cursor: pointer;
     outline: none;
-    background-color: var(--header-button-mainColor);
-    color: var(--header-button-contrastColor);
-    border: 2px solid var(--header-button-mainColor);
-    filter: drop-shadow(0 0 10px var(--header-button-shadow));
+    background-color: var(--title-background);
+    color: var(--title-color);
+    border: 2px solid var(--title-background);
+    filter: drop-shadow(0 0 10px var(--title-shadow));
     transition: all 0.3s;
     font-weight: bold;
 }
-header div > #platos {
+header div > #menu {
     max-width: 225px;
 }
 header div > #ordenar {
@@ -55,25 +55,25 @@ header div > #ordenar {
 }
 header div > #btncarrito {
     display: none;
-    border: 2px solid var(--header-button-mainColor);
-    background-color: var(--header-button-contrastColor);
-    color: var(--header-button-mainColor);
+    border: 2px solid var(--title-background);
+    background-color: var(--title-color);
+    color: var(--title-background);
 }
 
 /* FIN Nuevo estilo para platos */
 main {
-    border-top: 4px solid var(--main-title-background);
-    background-color: var(--hmf-background);
+    border-top: 4px solid var(--title-background);
+    background-color: var(--main-background);
     min-height: 250px;
-    box-shadow: 0 0 10px var(--hmf-shadow);
+    box-shadow: 0 0 10px var(--main-shadow);
     padding: 0px 20px 20px;
     margin: 20px;
     border-radius: 5px;
 }
 
 #title {
-    background-color: var(--main-title-background);
-    color: var(--main-title-color);
+    background-color: var(--title-background);
+    color: var(--title-color);
     padding: 5px 10px;
     border-radius: 0 0 5px 5px;
     width: max-content;
@@ -102,7 +102,8 @@ main {
     margin: 10px;
     max-width: 100%;
     width: 240px;
-    border: 2px solid rgb(20, 20, 20);
+    background-color: var(--dishContainer-background);
+    border: 2px solid var(--dishContainer-background);
     border-radius: 5px;
     box-shadow: 2.5px 2.5px 5px grey;
     /*background: linear-gradient(to bottom,
@@ -126,8 +127,8 @@ main {
     padding: 1px 5px;
     font-size: medium;
     font-weight: bold;
-    border: 2px solid rgb(20, 20, 20);
-    color: #fff;
+    border: 2px solid var(--dishContainer-background);
+    color: var(--dishContainer-color);
 }
 
 #dishes > .dishContainer>button[data-id="quantity"].selected {
@@ -372,11 +373,11 @@ section {
 footer {
     max-width: 1080px;
     text-align: center;
-    background-color: var(--hmf-background);
+    background-color: var(--footer-background);
     padding: 20px;
     margin: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 0 10px var(--hmf-shadow);
+    box-shadow: 0 0 10px var(--footer-shadow);
     border-radius: 5px;
 }
 footer > ul li {
@@ -384,13 +385,13 @@ footer > ul li {
     display: inline-flex;
     flex-wrap: wrap;
     padding: 5px 10px;
-    color: var(--main-table-tbody-color);
+    color: var(--footer-color);
     border-radius: 5px;
-    border-left: 2px solid var(--main-title-background);
-    border-right: 2px solid var(--main-title-background);
+    border-left: 2px solid var(--title-background);
+    border-right: 2px solid var(--title-background);
 }
 footer > ul li a {
-    color: var(--main-table-tbody-color);
+    color: var(--footer-color);
     margin-left: 5px;
 }
 .delCarrito,
