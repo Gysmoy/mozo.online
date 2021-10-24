@@ -36,7 +36,7 @@ onSnapshot(collection(db, 'users', idUser, 'dishes'), (dishes) => {
 
 getImage = async function getImage(idImages, idImage) {
     if (sessionStorage.getItem(idImage) == null) {
-        console.log('Obtuvo la imagen de la base de datos');
+        console.log('Image source got from database');
         const ref = doc(db, 'images', idUser, idImages, idImage);
         const docImage = await getDoc(ref);
         if (docImage.exists()) {
@@ -47,7 +47,7 @@ getImage = async function getImage(idImages, idImage) {
             return 'data:image/jpeg;base64,';
         }
     } else {
-        console.log('Obtuvo la imagen de almacenamiento local');
+        console.log('Image source got from localstorage');
         const image = sessionStorage.getItem(idImage);
         return 'data:image/jpeg;base64,' + image;
     }
