@@ -439,17 +439,52 @@ footer > ul li a {
     color: var(--main-table-tbody-orderButton-color);
 }
 /* animation loading*/
-.skeleton {
-    animation: skeleton-loading 1s linear infinite alternate;
+/*
+.placeholder-item {
+    box-shadow: 0 4px 10px 0 rgba(33, 33, 33, 0.15);
+    border-radius: 4px;
+    width: 200px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
 }
+*/
+.placeholder-item::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -40px;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    background: linear-gradient(to right, transparent 0%, #d8d8d8 50%, transparent 100%);
+    animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+@keyframes load {
+    from {
+        left: 0px;
+    }
+    to   {
+        left: 84%;
+    }
+}
+
+.skeleton {
+    animation: skeleton-loading  1s linear infinite alternate;
+}
+
 @keyframes skeleton-loading {
-    0% {
-        background-color: hsl(200, 20%, 70%);
-      }
     
-      100% {
-        background-color: hsl(200, 20%, 95%);
-      }
+    0% {
+        background-color: rgb(243, 243, 243);
+    }
+    
+    50%{
+        background-color: rgb(255, 255, 255);
+    }
+    100% {
+        background-color: rgb(243, 243, 243);
+    }
 }
 
 @media screen and (max-width: 720px) {
