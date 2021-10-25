@@ -429,6 +429,19 @@ footer > ul li a {
     background-color: var(--main-table-tbody-orderButton-background);
     color: var(--main-table-tbody-orderButton-color);
 }
+/* animation loading*/
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 70%);
+      }
+    
+      100% {
+        background-color: hsl(200, 20%, 95%);
+      }
+}
 
 @media screen and (max-width: 720px) {
     main > #divcarrito table tbody tr td:first-child,
