@@ -25,6 +25,7 @@ function setDishes() {
                         rgba(20, 20, 20, 0.625)), url(${await getImage(idMenu, id)});
                     background-size: cover;
                     background-position: center center;
+                    display: none;
                 " loading="lazy">
                 <button data-id="quantity" class="" title="Platos ordenados">0</button>
                 <button data-id="remove" class="" title="Quitar" onclick="removeFromCart($(this).parent().attr('dish-id'))">X</button>
@@ -38,6 +39,7 @@ function setDishes() {
                 </table>
             </div>
         `);
+        $(`#${id}`).show(250);
     })
 }
 

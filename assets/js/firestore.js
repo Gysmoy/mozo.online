@@ -36,20 +36,22 @@ onSnapshot(collection(db, 'users', idUser, 'dishes'), (dishes) => {
 
 getImage = async function getImage(idImages, idImage) {
     if (sessionStorage.getItem(idImage) == null) {
-        console.log('Image source got from database');
+        
         const ref = doc(db, 'images', idUser, idImages, idImage);
         const docImage = await getDoc(ref);
         if (docImage.exists()) {
             const image = docImage.data().data;
             sessionStorage.setItem(idImage, image);
-            return 'data:image/jpeg;base64,' + image;
+            console.log('Image source got from database');
+            return 'data:image/png;base64,' + image;
         } else {
-            return 'data:image/jpeg;base64,';
+            console.log('Image source got from default')
+            return 'files/maindata/default.jpg';
         }
     } else {
         console.log('Image source got from localstorage');
         const image = sessionStorage.getItem(idImage);
-        return 'data:image/jpeg;base64,' + image;
+        return 'data:image/png;base64,' + image;
     }
 
 }
