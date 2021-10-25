@@ -457,7 +457,7 @@ footer > ul li a {
     top: 0;
     height: 100%;
     width: 40px;
-    background: linear-gradient(to right, transparent 0%, #d8d8d8 50%, transparent 100%);
+    background: linear-gradient(to right, transparent 0%, #c5c5c5 50%, transparent 100%);
     animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
 }
 @keyframes load {
@@ -476,14 +476,14 @@ footer > ul li a {
 @keyframes skeleton-loading {
     
     0% {
-        background-color: rgb(243, 243, 243);
+        background-color: rgb(255, 255, 255);
     }
     
     50%{
         background-color: rgb(255, 255, 255);
     }
     100% {
-        background-color: rgb(243, 243, 243);
+        background-color: rgb(255, 255, 255);
     }
 }
 
