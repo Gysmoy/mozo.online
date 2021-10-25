@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: var(--font);
     box-sizing: border-box;
     transition: 0.3s;
 }
@@ -18,16 +18,25 @@ header {
     align-content: center;
     text-align: center;
     box-shadow: 0 0 10px var(--header-shadow);
+    background-color: #ffffff;
     background-image: var(--background);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5px;
     margin: 20px;
 }
+header > #logo.loading {
+    content: url(../../img/loading.gif);
+    padding: 100px;
+}
 header > #logo {
+    
+    font-size: small;
     display: inline-block;
-    width: 100%;
-    max-width: 250px;
+    width: 250px;
+    height: 250px;
+    max-width: 100%;
+    max-height: 100%;
     margin-top: 20px;
     filter: drop-shadow(0 0 10px var(--header-shadow));
 }

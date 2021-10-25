@@ -6,8 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHOP | Gysmoy</title>
-    <style id="generalConfig"></style>
-    <style id="especificConfig"></style>
+    <style id="generalConfig">
+        :root {
+            --font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>
+    <style id="especificConfig">
+        :root {
+            --footer-color: #000000;
+            --footer-shadow: #b0b0b0;
+            --footer-background: #ffffff;
+            --header-background: #ffffff;
+            --header-color: #000000;
+            --header-shadow: #b0b0b0;
+            --main-background: #ffffff;
+            --dishContainer-shadow: #b0b0b0;
+            --dishContainer-background: #000000;
+            --dishContainer-color: #ffffff;
+            --title-background: #000000;
+            --title-shadow: #b0b0b0;
+            --title-color: #ffffff;
+            --main-color: #000000;
+            --main-shadow: #b0b0b0;
+        }
+    </style>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/guid.min.js"></script>
@@ -17,17 +39,17 @@
 <body>
 
     <header>
-        <img src="" alt="Mozo en línea" id="logo" loading="lazy">
+        <img src="" alt="Mozo en línea" id="logo" class="loading" loading="lazy">
         <div>
             <select id="menu">
-                <option value="">Contenedor 1</option>
+                <option value="">Cargando...</option>
             </select>
             <button id="ordenar">Ordenar [<span id="total">S/ 00.00</span>]</button>
             <button id="btncarrito">🛒 [<span id="spancarrito">0</span>]</button>
         </div>
     </header>
     <main>
-        <div id="title">Title Here</div>
+        <div id="title">Cargando...</div>
         <div id="dishes">
             <div class="dishContainer skeleton" style="
                     background: linear-gradient(to bottom,
