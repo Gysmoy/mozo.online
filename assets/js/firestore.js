@@ -18,7 +18,7 @@ const db = getFirestore();
 /* Escuchar las actualizaciones de la configuración general */
 onSnapshot(doc(db, 'users', idUser, 'config', 'general'), (general) => {
     config.general = general.data();
-    setGeneralConfig(config.general);
+    setGeneralConfig(config.general); 
 })
 
 /* Escuchar las actualizaciones de la configuración específica */
