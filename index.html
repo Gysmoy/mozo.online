@@ -32,6 +32,7 @@
     </style>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/dishContainerLoading.js"></script>
     <script src="assets/js/guid.min.js"></script>
     <script src="assets/js/globalVar.js"></script>
 </head>
@@ -51,29 +52,8 @@
     <main>
         <div id="title">Cargando...</div>
         <div id="dishes">
-            <div class="dishContainer placeholder-item skeleton" style="
-                    background: linear-gradient(to bottom,
-                        rgb(233, 231, 231),
-                        rgb(231, 231, 231));
-                    background-size: cover;
-                    background-position: center center; width: 200px;height: 100px; padding-top: 40px;
-                " loading="lazy">
-                <center>Loadin img</center>
-                <!--
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Ejemplo de nombre de plato</td>
-                            <td><button>00.00</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            -->
-
-
-            </div>
+            <script>dishContainerLoading()</script>
         </div>
-
     </main>
     <section style="display: none;">
         <div id="shower">

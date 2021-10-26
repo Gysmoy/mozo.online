@@ -8,17 +8,18 @@ function setMenu() {
     setDishes();
 }
 
-function setDishes() {
+async function setDishes() {
     var idMenu = $('#menu').val();
-    $('#dishes').empty();
+    dishContainerLoading();
     $('#title').text(menu[idMenu].name);
-    menu[idMenu].dishes.forEach(async dish =>{
-        var dataDish = JSON.stringify(dish);
+    var template = {};
+    var IDs = [];
+    await menu[idMenu].dishes.forEach(async dish => {
         var id = dish.id;
         var name = dish.name;
         var price = parseFloat(dish.price).toFixed(2);
-        var stock = dish.stock;
-        $('#dishes').append(`
+        var stock = dish.actualStock;
+        template[id] = `
             <div id="${id}" stock="${stock}" price="${price}" class="dishContainer" style="
                     background: linear-gradient(to bottom,
                         rgba(20, 20, 20, 0.125) 40%,
@@ -26,7 +27,7 @@ function setDishes() {
                     background-size: cover;
                     background-position: center center;
                     display: none;
-                " loading="lazy">
+                ">
                 <button data-id="quantity" class="" title="Platos ordenados">0</button>
                 <button data-id="remove" class="" title="Quitar" onclick="removeFromCart($(this).parent().attr('dish-id'))">X</button>
                 <table onclick="openOrderer($(this).parent())">
@@ -38,8 +39,24 @@ function setDishes() {
                     </tbody>
                 </table>
             </div>
-        `);
-        $(`#${id}`).show(250);
+        `;
+        IDs.push(id);
+    })
+    showContainers(IDs, template);
+}
+
+function showContainers(IDs, template) {
+    $('#dishes').empty();
+    console.log(IDs);
+    var i = 0;
+    IDs.forEach(id => {
+        var time = i * 250;
+        console.log(id);
+        $('#dishes').append(template[id]);
+        setTimeout(() => {
+            $(`[id="${id}"]`).show(250);
+        }, time);
+        i++;
     })
 }
 

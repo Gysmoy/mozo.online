@@ -2,6 +2,7 @@ async function setGeneralConfig(o) {
     $("title").text(o.pageName);
     var b64Logo = await getImage('config', o.logo);
     $("#logo").attr('src', b64Logo).attr("alt", o.pageName).removeClass('loading');
+    $('header').removeClass('loading');
     var t = "";
     t += `--background: url('${await getImage('config', o.background)}');`, 
     t += `--font: ${o.font};`,

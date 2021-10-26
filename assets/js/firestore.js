@@ -46,7 +46,7 @@ getImage = async function getImage(idImages, idImage) {
             return 'data:image/png;base64,' + image;
         } else {
             console.log('Image source got from default')
-            return 'files/maindata/default.jpg';
+            return '/files/maindata/default.jpg';
         }
     } else {
         console.log('Image source got from localstorage');

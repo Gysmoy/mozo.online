@@ -106,6 +106,45 @@ main {
     height: max-content;
 }
 
+#dishes > .dishContainer.loading {
+    border: 2px solid transparent;
+    background-color: rgb(250, 250, 250);
+    animation: shine 1s linear infinite alternate-reverse;
+}
+
+#dishes > .dishContainer.loading::before {
+    position: absolute;
+    content: url(../../img/loading.gif);
+    top: -40px;
+    left: 10px;
+    right: 0;
+    bottom: 0;
+    transform: scale(.25);
+    animation: shine 1s linear infinite alternate-reverse;
+}
+
+#dishes > .dishContainer.loading>table>tbody>tr>td:nth-child(1) p {
+    border-radius: 5px;
+    background-color: rgb(210, 210, 210);
+    animation: shine 1s linear infinite alternate-reverse;
+}
+#dishes > .dishContainer.loading>table>tbody>tr>td:nth-child(2) button {
+    border-radius: 5px;
+    background-color: rgb(210, 210, 210);
+    color: rgb(210, 210, 210);
+    animation: shine 1s linear infinite alternate-reverse;
+}
+
+@keyframes shine {
+    from {
+        filter: opacity(1);
+    }
+    to {
+        filter: opacity(0.5);
+    }
+
+}
+
 #dishes > .dishContainer {
     position: relative;
     margin: 10px;
@@ -437,54 +476,6 @@ footer > ul li a {
     border-radius: 0 0 5px 5px;
     background-color: var(--main-table-tbody-orderButton-background);
     color: var(--main-table-tbody-orderButton-color);
-}
-/* animation loading*/
-/*
-.placeholder-item {
-    box-shadow: 0 4px 10px 0 rgba(33, 33, 33, 0.15);
-    border-radius: 4px;
-    width: 200px;
-    height: 100px;
-    position: relative;
-    overflow: hidden;
-}
-*/
-.placeholder-item::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: -40px;
-    top: 0;
-    height: 100%;
-    width: 40px;
-    background: linear-gradient(to right, transparent 0%, #c5c5c5 50%, transparent 100%);
-    animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
-}
-@keyframes load {
-    from {
-        left: 0px;
-    }
-    to   {
-        left: 84%;
-    }
-}
-
-.skeleton {
-    animation: skeleton-loading  1s linear infinite alternate;
-}
-
-@keyframes skeleton-loading {
-    
-    0% {
-        background-color: rgb(255, 255, 255);
-    }
-    
-    50%{
-        background-color: rgb(255, 255, 255);
-    }
-    100% {
-        background-color: rgb(255, 255, 255);
-    }
 }
 
 @media screen and (max-width: 720px) {
