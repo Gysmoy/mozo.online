@@ -8,22 +8,24 @@ function setMenu() {
     setDishes();
 }
 
-async function setDishes() {
+function setDishes() {
     var idMenu = $('#menu').val();
     dishContainerLoading();
     $('#title').text(menu[idMenu].name);
     var template = {};
     var IDs = [];
-    await menu[idMenu].dishes.forEach(async dish => {
+    var i = 0;
+    menu[idMenu].dishes.forEach(async dish => {
         var id = dish.id;
         var name = dish.name;
         var price = parseFloat(dish.price).toFixed(2);
         var stock = dish.actualStock;
+        const image = await getImage(idMenu, id);
         template[id] = `
             <div id="${id}" stock="${stock}" price="${price}" class="dishContainer" style="
                     background: linear-gradient(to bottom,
                         rgba(20, 20, 20, 0.125) 40%,
-                        rgba(20, 20, 20, 0.625)), url(${await getImage(idMenu, id)});
+                        rgba(20, 20, 20, 0.625)), url(${image});
                     background-size: cover;
                     background-position: center center;
                     display: none;
@@ -41,17 +43,16 @@ async function setDishes() {
             </div>
         `;
         IDs.push(id);
+        i++;
+        if (i >= menu[idMenu].dishes.length) showContainers(IDs, template);
     })
-    showContainers(IDs, template);
 }
 
 function showContainers(IDs, template) {
     $('#dishes').empty();
-    console.log(IDs);
     var i = 0;
     IDs.forEach(id => {
         var time = i * 250;
-        console.log(id);
         $('#dishes').append(template[id]);
         setTimeout(() => {
             $(`[id="${id}"]`).show(250);
