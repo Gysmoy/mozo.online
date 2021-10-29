@@ -23,7 +23,7 @@ function setDishes() {
         var stock = dish.actualStock;
         const image = await getImage(idMenu, id);
         template[id] = `
-            <div id="${id}" stock="${stock}" price="${price}" class="dishContainer" style="
+            <div id="${id}" stock="${stock}" price="${price}" name="${name}" img="${image}" class="dishContainer" style="
                     background: linear-gradient(to bottom,
                         rgba(20, 20, 20, 0.125) 40%,
                         rgba(20, 20, 20, 0.625)), url(${image});
@@ -56,7 +56,7 @@ function showContainers(IDs, template) {
         var time = i * 250;
         $('#dishes').append(template[id]);
         setTimeout(() => {
-            $(`#${id}`).show(250);
+            $(`#${id}`).fadeIn(250);
         }, time);
         i++;
     })

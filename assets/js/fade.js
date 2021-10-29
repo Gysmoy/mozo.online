@@ -25,19 +25,4 @@ $('#btncarrito').click(function () {
     }
 })
 
-$('main').ready(function(){
-    $('main > div').hide();
-    $('#' + $('#platos').val()).fadeIn();
-})
 
-$('#cancel').click(event => {
-    $('#shower').fadeOut();
-    $('#shower img').attr('src', '/files/maindata/default.jpg');
-    $('#shower h2').text(null);
-    $('#order input').val(0);
-    $('#accept span').text('0.00');
-})
-
-$('fieldset').click(event => {
-    $('#shower').fadeIn();
-})
