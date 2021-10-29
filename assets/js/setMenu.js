@@ -10,12 +10,13 @@ function setMenu() {
 
 function setDishes() {
     var idMenu = $('#menu').val();
-    dishContainerLoading();
+    const dishes = menu[idMenu].dishes;
+    dishContainerLoading(dishes.length);
     $('#title').text(menu[idMenu].name);
     var template = {};
     var IDs = [];
     var i = 0;
-    menu[idMenu].dishes.forEach(async dish => {
+    dishes.forEach(async dish => {
         var id = dish.id;
         var name = dish.name;
         var price = parseFloat(dish.price).toFixed(2);
@@ -44,7 +45,7 @@ function setDishes() {
         `;
         IDs.push(id);
         i++;
-        if (i >= menu[idMenu].dishes.length) showContainers(IDs, template);
+        if (i >= dishes.length) showContainers(IDs, template);
     })
 }
 
@@ -55,7 +56,7 @@ function showContainers(IDs, template) {
         var time = i * 250;
         $('#dishes').append(template[id]);
         setTimeout(() => {
-            $(`[id="${id}"]`).show(250);
+            $(`#${id}`).show(250);
         }, time);
         i++;
     })
