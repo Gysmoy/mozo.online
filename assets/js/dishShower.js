@@ -1,4 +1,4 @@
-async function openOrderer(dishContainer) {
+function openOrderer(dishContainer) {
     var id = dishContainer.attr('id');
     var name = dishContainer.attr('name');
     var price = parseFloat(dishContainer.attr('price'));
@@ -16,9 +16,41 @@ async function openOrderer(dishContainer) {
     $('#name').text(name);
     $('#realPrice').text(price.toFixed(2));
     $('#quantity').attr('max', stock);
+    $('#maximun').val(stock)
 
     $('#shower').parent().fadeIn();
 }
+
+function quantity(op = 'increase') {
+    var value = parseInt($('#quantity').val());
+    switch (op) {
+        case 'decrease':
+            value--;
+            break;
+    
+        default:
+            value++;
+            break;
+    }
+    $('#quantity').val(value);
+    validateStock();
+}
+
+function validateStock() {
+    var value = parseInt($('#quantity').val());
+    var max = parseInt($('#maximun').val());
+    value = isNaN(value) ? 0: value;
+    value = value < 0 ? 0: (value > max ? max: value);
+    $('#quantity').val(value);
+}
+$('#min').click(function(){quantity('decrease')});
+$('#max').click(function(){quantity('increase')});
+$('#maximun').click(function() {
+    var max = $(this).val();
+    $('#quantity').val(max);
+    validateStock();
+})
+$('#quantity').change(validateStock);
 
 $('#cancel').click(event => {
     $('#shower').parent().fadeOut();

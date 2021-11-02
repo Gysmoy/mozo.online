@@ -1,10 +1,22 @@
 function setMenu() {
     $('#menu').empty();
+    var select = [];
     for (const idMenu in menu) {
-        var id = idMenu;
-        var name = menu[idMenu].name;
-        $('#menu').append(`<option value="${id}" label="${name}">${name}</option>`);
-    }
+        var value = idMenu;
+        var label = menu[idMenu].name;
+        select.push({ value, label });
+    };
+    select.sort((a, b) => {
+        if (a.label > b.label) return 1;
+        if (a.label < b.label) return -1;
+        return 0;
+    });
+    console.log(select);
+    select.forEach(container => {
+        var value = container.value;
+        var label = container.label;
+        $('#menu').append(`<option value="${value}" label="${label}">${label}</option>`)
+    })
     setDishes();
 }
 
