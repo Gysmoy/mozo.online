@@ -11,7 +11,6 @@ function setMenu() {
         if (a.label < b.label) return -1;
         return 0;
     });
-    console.log(select);
     select.forEach(container => {
         var value = container.value;
         var label = container.label;
